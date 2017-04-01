@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="BankInfo">
+
+	   	<insert id="saveBankInfo" parameterClass="cn.seocoo.platform.model.BankInfo">
+        	insert into tb_seocoo_bank_info(bankCode,bankName,bankId,areaCode)VALUES(#bankCode#,#bankName#,#bankId#,#areaCode#)
+    	</insert>
+
+		<select id="queryBankInfo" parameterClass="cn.seocoo.platform.model.BankInfo" resultClass="cn.seocoo.platform.model.BankInfo">
+			SELECT * from tb_seocoo_bank_info 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bankCode"> 
+					 	bankCode = #bankCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName LIKE '%$bankName$%'
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bankId"> 
+					 	bankId = #bankId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="areaCode"> 
+					 	areaCode = #areaCode#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateBankInfo" parameterClass="cn.seocoo.platform.model.BankInfo" >
+			update tb_seocoo_bank_info 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="bankCode"> 
+					 	bankCode = #bankCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bankName"> 
+					 	bankName = #bankName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bankId"> 
+					 	bankId = #bankId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="areaCode"> 
+					 	areaCode = #areaCode#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteBankInfo" parameterClass="cn.seocoo.platform.model.BankInfo" >
+			DELETE FROM tb_seocoo_bank_info where id=#id#
+		</delete>
+
+		<select id="queryBankInfoPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.BankInfo">
+			SELECT * from tb_seocoo_bank_info 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="bankCode"> 
+					 	bankCode = #bankCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankId"> 
+					 	bankId = #bankId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="areaCode"> 
+					 	areaCode = #areaCode#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryBankInfoPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_bank_info 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="bankCode"> 
+					 	bankCode = #bankCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankId"> 
+					 	bankId = #bankId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="areaCode"> 
+					 	areaCode = #areaCode#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

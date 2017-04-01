@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="MerchantProfitLog">
+
+	   	<insert id="saveMerchantProfitLog" parameterClass="cn.seocoo.platform.model.MerchantProfitLog">
+        	insert into tb_seocoo_merchantProfit_log(merchantCode,updateProfit,updateStyle,countTime,operator,createTime)VALUES(#merchantCode#,#updateProfit#,#updateStyle#,#countTime#,#operator#,#createTime#)
+    	</insert>
+
+		<select id="queryMerchantProfitLog" parameterClass="cn.seocoo.platform.model.MerchantProfitLog" resultClass="cn.seocoo.platform.model.MerchantProfitLog">
+			SELECT * from tb_seocoo_merchantProfit_log 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateProfit"> 
+					 	updateProfit = #updateProfit#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateStyle"> 
+					 	updateStyle = #updateStyle#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="countTime"> 
+					 	countTime = #countTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="operator"> 
+					 	operator = #operator#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+</sqlMap>

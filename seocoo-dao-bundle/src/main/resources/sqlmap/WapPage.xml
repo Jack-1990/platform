@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="WapPage">
+
+	   	<insert id="saveWapPage" parameterClass="cn.seocoo.platform.model.WapPage">
+        	insert into tb_seocoo_wapPage(pageName,pageType,seq,createTime,pageLink)VALUES(#pageName#,#pageType#,#seq#,#createTime#,#pageLink#)
+    	</insert>
+
+		<select id="queryWapPage" parameterClass="cn.seocoo.platform.model.WapPage" resultClass="cn.seocoo.platform.model.WapPage">
+			SELECT * from tb_seocoo_wapPage 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="pageName"> 
+					 	pageName = #pageName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="pageType"> 
+					 	pageType = #pageType#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="pageLink"> 
+					 	pageLink = #pageLink#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					 </isNotEmpty> 
+				</dynamic> 
+				ORDER BY seq ASC
+		</select>
+
+		<update id="updateWapPage" parameterClass="cn.seocoo.platform.model.WapPage" >
+			update tb_seocoo_wapPage 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="pageName"> 
+					 	pageName = #pageName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="pageType"> 
+					 	pageType = #pageType#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="pageLink"> 
+					 	pageLink = #pageLink#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteWapPage" parameterClass="cn.seocoo.platform.model.WapPage" >
+			DELETE FROM tb_seocoo_wapPage where id=#id#
+		</delete>
+
+		<select id="queryWapPagePage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.WapPage">
+			SELECT * from tb_seocoo_wapPage 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="pageName"> 
+					 	pageName = #pageName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="pageType"> 
+					 	pageType = #pageType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="pageLink"> 
+					 	pageLink = #pageLink#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryWapPagePageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_wapPage 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="pageName"> 
+					 	pageName = #pageName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="pageType"> 
+					 	pageType = #pageType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="pageLink"> 
+					 	pageLink = #pageLink#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

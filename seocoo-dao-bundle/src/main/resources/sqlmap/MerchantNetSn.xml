@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="MerchantNetSn">
+
+	   	<insert id="saveMerchantNetSn" parameterClass="cn.seocoo.platform.model.MerchantNetSn">
+        	insert into tb_seocoo_merchant_net_sn(groupCode,merchantCode,snCode,activated)VALUES(#groupCode#,#merchantCode#,#snCode#,#activated#)
+    	</insert>
+
+		<select id="queryMerchantNetSn" parameterClass="cn.seocoo.platform.model.MerchantNetSn" resultClass="cn.seocoo.platform.model.MerchantNetSn">
+			SELECT * from tb_seocoo_merchant_net_sn 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="activated"> 
+					 	activated = #activated#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		
+		<select id="queryMerchantNetSnBySnCode" parameterClass="cn.seocoo.platform.model.MerchantNetSn" resultClass="cn.seocoo.platform.model.MerchantNetSn">
+			select s.*,m.mchntName as merchantName from tb_seocoo_merchant_net_sn s,tb_seocoo_merchant m  where s.merchantCode=m.outMchntId and s.activated=1 and s.snCode = #snCode#
+		</select>
+
+		<update id="updateMerchantNetSn" parameterClass="cn.seocoo.platform.model.MerchantNetSn" >
+			update tb_seocoo_merchant_net_sn 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+
+					<isNotEmpty prepend="," property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="activated"> 
+					 	activated = #activated#
+					</isNotEmpty> 
+				</dynamic> 
+			where 	merchantCode = #merchantCode#
+		</update>
+
+		<delete id="deleteMerchantNetSn" parameterClass="cn.seocoo.platform.model.MerchantNetSn" >
+			DELETE FROM tb_seocoo_merchant_net_sn where merchantCode = #merchantCode#
+		</delete>
+
+		<select id="queryMerchantNetSnPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.MerchantNetSn">
+			SELECT * from tb_seocoo_merchant_net_sn 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="activated"> 
+					 	activated = #activated#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryMerchantNetSnPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_merchant_net_sn 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="activated"> 
+					 	activated = #activated#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

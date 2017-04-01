@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Group">
+
+	   	<insert id="saveGroup" parameterClass="cn.seocoo.platform.model.Group">
+        	insert into tb_seocoo_group(groupCode,shortName,fullName,groupLevel,lantCode,address,certificateFlag,businessCardNumber,validTime,linkman,linkmanId,rpName,rptelephone,customerTelephone,customerId,accountStyle,extensionNumber,remark,idBeforePic,idAfterPic,checkPic1,checkPic2,businessCardPic,status,createUser,createTime,parentCode)
+        	VALUES(#groupCode#,#shortName#,#fullName#,#groupLevel#,#lantCode#,#address#,#certificateFlag#,#businessCardNumber#,#validTime#,#linkman#,#linkmanId#,#rpName#,#rptelephone#,#customerTelephone#,#customerId#,#accountStyle#,#extensionNumber#,#remark#,#idBeforePic#,#idAfterPic#,#checkPic1#,#checkPic2#,#businessCardPic#,#status#,#createUser#,#createTime#,#parentCode#)
+    	</insert>
+
+		<select id="queryGroup" parameterClass="cn.seocoo.platform.model.Group" resultClass="cn.seocoo.platform.model.Group">
+			SELECT * from tb_seocoo_group 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="shortName"> 
+					 	shortName = #shortName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="fullName"> 
+					 	fullName = #fullName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupLevel"> 
+					 	groupLevel = #groupLevel#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="lantCode"> 
+					 	lantCode = #lantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="address"> 
+					 	address = #address#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="certificateFlag"> 
+					 	certificateFlag = #certificateFlag#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="businessCardNumber"> 
+					 	businessCardNumber = #businessCardNumber#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="validTime"> 
+					 	validTime = #validTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="linkman"> 
+					 	linkman = #linkman#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="linkmanId"> 
+					 	linkmanId = #linkmanId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="rpName"> 
+					 	rpName = #rpName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="rptelephone"> 
+					 	rptelephone = #rptelephone#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="customerTelephone"> 
+					 	customerTelephone = #customerTelephone#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="customerId"> 
+					 	customerId = #customerId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="accountStyle"> 
+					 	accountStyle = #accountStyle#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="extensionNumber"> 
+					 	extensionNumber = #extensionNumber#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="remark"> 
+					 	remark = #remark#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="idBeforePic"> 
+					 	idBeforePic = #idBeforePic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="idAfterPic"> 
+					 	idAfterPic = #idAfterPic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="checkPic1"> 
+					 	checkPic1 = #checkPic1#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="checkPic2"> 
+					 	checkPic2 = #checkPic2#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="businessCardPic"> 
+					 	businessCardPic = #businessCardPic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateGroup" parameterClass="cn.seocoo.platform.model.Group" >
+			update tb_seocoo_group 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="shortName"> 
+					 	shortName = #shortName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="fullName"> 
+					 	fullName = #fullName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="groupLevel"> 
+					 	groupLevel = #groupLevel#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="lantCode"> 
+					 	lantCode = #lantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="address"> 
+					 	address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="certificateFlag"> 
+					 	certificateFlag = #certificateFlag#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="businessCardNumber"> 
+					 	businessCardNumber = #businessCardNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="validTime"> 
+					 	validTime = #validTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="linkman"> 
+					 	linkman = #linkman#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="linkmanId"> 
+					 	linkmanId = #linkmanId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="rpName"> 
+					 	rpName = #rpName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="rptelephone"> 
+					 	rptelephone = #rptelephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="customerTelephone"> 
+					 	customerTelephone = #customerTelephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="customerId"> 
+					 	customerId = #customerId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="accountStyle"> 
+					 	accountStyle = #accountStyle#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="extensionNumber"> 
+					 	extensionNumber = #extensionNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="remark"> 
+					 	remark = #remark#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="idBeforePic"> 
+					 	idBeforePic = #idBeforePic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="idAfterPic"> 
+					 	idAfterPic = #idAfterPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="checkPic1"> 
+					 	checkPic1 = #checkPic1#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="checkPic2"> 
+					 	checkPic2 = #checkPic2#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="businessCardPic"> 
+					 	businessCardPic = #businessCardPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteGroup" parameterClass="cn.seocoo.platform.model.Group" >
+			DELETE FROM tb_seocoo_group where id=#id#
+		</delete>
+
+		<select id="queryGroupPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Group">
+			SELECT * from tb_seocoo_group 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupCodeLike"> 
+					 	groupCode LIKE '%$groupCodeLike$%'
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="shortName"> 
+					 	shortName = #shortName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="fullName"> 
+					 	fullName = #fullName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="fullNameLike"> 
+					 	fullName LIKE '%$fullNameLike$%'
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupLevel"> 
+					 	groupLevel = #groupLevel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="lantCode"> 
+					 	lantCode = #lantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="address"> 
+					 	address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="certificateFlag"> 
+					 	certificateFlag = #certificateFlag#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="businessCardNumber"> 
+					 	businessCardNumber = #businessCardNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="validTime"> 
+					 	validTime = #validTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="linkman"> 
+					 	linkman = #linkman#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="linkmanId"> 
+					 	linkmanId = #linkmanId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rpName"> 
+					 	rpName = #rpName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rptelephone"> 
+					 	rptelephone = #rptelephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="customerTelephone"> 
+					 	customerTelephone = #customerTelephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="customerId"> 
+					 	customerId = #customerId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="accountStyle"> 
+					 	accountStyle = #accountStyle#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="extensionNumber"> 
+					 	extensionNumber = #extensionNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="remark"> 
+					 	remark = #remark#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idBeforePic"> 
+					 	idBeforePic = #idBeforePic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idAfterPic"> 
+					 	idAfterPic = #idAfterPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic1"> 
+					 	checkPic1 = #checkPic1#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic2"> 
+					 	checkPic2 = #checkPic2#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="businessCardPic"> 
+					 	businessCardPic = #businessCardPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			order by id DESC
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryGroupPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_group 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="shortName"> 
+					 	shortName = #shortName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="fullName"> 
+					 	fullName = #fullName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupLevel"> 
+					 	groupLevel = #groupLevel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="lantCode"> 
+					 	lantCode = #lantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="address"> 
+					 	address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="certificateFlag"> 
+					 	certificateFlag = #certificateFlag#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="businessCardNumber"> 
+					 	businessCardNumber = #businessCardNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="validTime"> 
+					 	validTime = #validTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="linkman"> 
+					 	linkman = #linkman#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="linkmanId"> 
+					 	linkmanId = #linkmanId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rpName"> 
+					 	rpName = #rpName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rptelephone"> 
+					 	rptelephone = #rptelephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="customerTelephone"> 
+					 	customerTelephone = #customerTelephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="customerId"> 
+					 	customerId = #customerId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="accountStyle"> 
+					 	accountStyle = #accountStyle#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="extensionNumber"> 
+					 	extensionNumber = #extensionNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="remark"> 
+					 	remark = #remark#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idBeforePic"> 
+					 	idBeforePic = #idBeforePic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idAfterPic"> 
+					 	idAfterPic = #idAfterPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic1"> 
+					 	checkPic1 = #checkPic1#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic2"> 
+					 	checkPic2 = #checkPic2#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="businessCardPic"> 
+					 	businessCardPic = #businessCardPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupCodeLike"> 
+					 	groupCode LIKE '%$groupCodeLike$%'
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="fullNameLike"> 
+					 	fullName LIKE '%$fullNameLike$%'
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		
+	  <select id="queryCreateId" parameterClass="cn.seocoo.platform.model.Group" resultClass="cn.seocoo.platform.model.Group">
+			SELECT p.id from tb_seocoo_group  p
+			where p.groupCode in (SELECT t.groupCode FROM tb_seocoo_user_relationship t where t.loginName=#createUser#) 
+	</select>
+	
+	
+		<select id="queryGetChild" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Group">
+			SELECT * from tb_seocoo_group  where 1=1
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupCodeLike"> 
+					 	groupCode LIKE '%$groupCodeLike$%'
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="shortName"> 
+					 	shortName = #shortName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="fullName"> 
+					 	fullName = #fullName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="fullNameLike"> 
+					 	fullName LIKE '%$fullNameLike$%'
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupLevel"> 
+					 	groupLevel = #groupLevel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="lantCode"> 
+					 	lantCode = #lantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="address"> 
+					 	address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="certificateFlag"> 
+					 	certificateFlag = #certificateFlag#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="businessCardNumber"> 
+					 	businessCardNumber = #businessCardNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="validTime"> 
+					 	validTime = #validTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="linkman"> 
+					 	linkman = #linkman#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="linkmanId"> 
+					 	linkmanId = #linkmanId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rpName"> 
+					 	rpName = #rpName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rptelephone"> 
+					 	rptelephone = #rptelephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="customerTelephone"> 
+					 	customerTelephone = #customerTelephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="customerId"> 
+					 	customerId = #customerId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="accountStyle"> 
+					 	accountStyle = #accountStyle#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="extensionNumber"> 
+					 	extensionNumber = #extensionNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="remark"> 
+					 	remark = #remark#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idBeforePic"> 
+					 	idBeforePic = #idBeforePic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idAfterPic"> 
+					 	idAfterPic = #idAfterPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic1"> 
+					 	checkPic1 = #checkPic1#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic2"> 
+					 	checkPic2 = #checkPic2#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="businessCardPic"> 
+					 	businessCardPic = #businessCardPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				   <isNotEmpty prepend=" and " property="parentCode"> 
+					 FIND_IN_SET(groupCode,getChild(#parentCode#))
+					</isNotEmpty> 
+					 
+					order by id DESC
+					limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryGetChildCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_group  where 1=1
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="shortName"> 
+					 	shortName = #shortName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="fullName"> 
+					 	fullName = #fullName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupLevel"> 
+					 	groupLevel = #groupLevel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="lantCode"> 
+					 	lantCode = #lantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="address"> 
+					 	address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="certificateFlag"> 
+					 	certificateFlag = #certificateFlag#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="businessCardNumber"> 
+					 	businessCardNumber = #businessCardNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="validTime"> 
+					 	validTime = #validTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="linkman"> 
+					 	linkman = #linkman#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="linkmanId"> 
+					 	linkmanId = #linkmanId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rpName"> 
+					 	rpName = #rpName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rptelephone"> 
+					 	rptelephone = #rptelephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="customerTelephone"> 
+					 	customerTelephone = #customerTelephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="customerId"> 
+					 	customerId = #customerId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="accountStyle"> 
+					 	accountStyle = #accountStyle#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="extensionNumber"> 
+					 	extensionNumber = #extensionNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="remark"> 
+					 	remark = #remark#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idBeforePic"> 
+					 	idBeforePic = #idBeforePic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idAfterPic"> 
+					 	idAfterPic = #idAfterPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic1"> 
+					 	checkPic1 = #checkPic1#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic2"> 
+					 	checkPic2 = #checkPic2#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="businessCardPic"> 
+					 	businessCardPic = #businessCardPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupCodeLike"> 
+					 	groupCode LIKE '%$groupCodeLike$%'
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="fullNameLike"> 
+					 	fullName LIKE '%$fullNameLike$%'
+					</isNotEmpty> 
+					   <isNotEmpty prepend=" and " property="parentCode"> 
+					 	FIND_IN_SET(groupCode,getChild(#parentCode#))
+					</isNotEmpty> 
+		</select>
+		<select id="queryGetGroupCodes" parameterClass="java.util.Map" resultClass="java.lang.String">
+			SELECT getChild(#parentCode#) as groupCodes
+		</select>
+
+</sqlMap>

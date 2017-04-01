@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="PrintFalse">
+
+	   	<insert id="savePrintFalse" parameterClass="cn.seocoo.platform.model.PrintFalse">
+        	insert into tb_seocoo_print_false(merchantCode,boxMac,status,createTime)VALUES(#merchantCode#,#boxMac#,#status#,#createTime#)
+    	</insert>
+
+		<select id="queryPrintFalse" parameterClass="cn.seocoo.platform.model.PrintFalse" resultClass="cn.seocoo.platform.model.PrintFalse">
+			SELECT * from tb_seocoo_print_false 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="boxMac"> 
+					 	boxMac = #boxMac#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updatePrintFalse" parameterClass="cn.seocoo.platform.model.PrintFalse" >
+			update tb_seocoo_print_false 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="boxMac"> 
+					 	boxMac = #boxMac#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deletePrintFalse" parameterClass="cn.seocoo.platform.model.PrintFalse" >
+			DELETE FROM tb_seocoo_print_false where id=#id#
+		</delete>
+
+		<select id="queryPrintFalsePage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.PrintFalse">
+			SELECT * from tb_seocoo_print_false 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="boxMac"> 
+					 	boxMac = #boxMac#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryPrintFalsePageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_print_false 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="boxMac"> 
+					 	boxMac = #boxMac#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

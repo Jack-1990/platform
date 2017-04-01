@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="MerchantSnRef">
+
+	   	<insert id="saveMerchantSnRef" parameterClass="cn.seocoo.platform.model.MerchantSnRef">
+        	insert into tb_seocoo_merchant_sn_ref(groupCode,merchantCode,snCode,activated)VALUES(#groupCode#,#merchantCode#,#snCode#,#activated#)
+    	</insert>
+
+		<select id="queryMerchantSnRef" parameterClass="cn.seocoo.platform.model.MerchantSnRef" resultClass="cn.seocoo.platform.model.MerchantSnRef">
+			SELECT * from tb_seocoo_merchant_sn_ref 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					  <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="activated"> 
+					 	activated = #activated#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateMerchantSnRef" parameterClass="cn.seocoo.platform.model.MerchantSnRef" >
+			update tb_seocoo_merchant_sn_ref 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					 <isNotEmpty prepend="," property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					<isNotEmpty prepend="," property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="activated"> 
+					 	activated = #activated#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteMerchantSnRef" parameterClass="cn.seocoo.platform.model.MerchantSnRef" >
+			DELETE FROM tb_seocoo_merchant_sn_ref where id=#id#
+		</delete>
+
+		<select id="queryMerchantSnRefPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.MerchantSnRef">
+			SELECT * from tb_seocoo_merchant_sn_ref 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					<isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="activated"> 
+					 	activated = #activated#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryMerchantSnRefPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_merchant_sn_ref 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					<isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="activated"> 
+					 	activated = #activated#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		<select id="queryByMerchantSnRef" parameterClass="cn.seocoo.platform.model.MerchantSnRef" resultClass="cn.seocoo.platform.model.MerchantSnRef">
+			SELECT * from tb_seocoo_merchant_sn_ref 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					<isNotEmpty prepend=" and " property="activated"> 
+					 	activated = #activated#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

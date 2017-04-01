@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Bank">
+
+	   	<insert id="saveBank" parameterClass="cn.seocoo.platform.model.Bank">
+        	insert into tb_seocoo_bank(bankName)VALUES(#bankName#)
+    	</insert>
+
+		<select id="queryBank" parameterClass="cn.seocoo.platform.model.Bank" resultClass="cn.seocoo.platform.model.Bank">
+			SELECT * from tb_seocoo_bank 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateBank" parameterClass="cn.seocoo.platform.model.Bank" >
+			update tb_seocoo_bank 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="bankName"> 
+					 	bankName = #bankName#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteBank" parameterClass="cn.seocoo.platform.model.Bank" >
+			DELETE FROM tb_seocoo_bank where id=#id#
+		</delete>
+
+		<select id="queryBankPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Bank">
+			SELECT * from tb_seocoo_bank 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryBankPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_bank 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

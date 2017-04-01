@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="payRate" extends="default" namespace="/">
+		
+		<action name="payRate" method="payRate" class="payRateAction">
+			<result name="payRate">/pages/payRate/payRate.jsp</result>
+		</action>
+		
+	</package>
+</struts>

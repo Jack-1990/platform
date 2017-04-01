@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserUpgradeOrder">
+
+	   	<insert id="saveUserUpgradeOrder" parameterClass="cn.seocoo.platform.model.UserUpgradeOrder">
+        	insert into tb_seocoo_userUpgrade_order(orderNumber,orderPrice,channel,paymentChannel,orderUser,merchantCode,orderDate,status,upGrade_id,transSeq,retnISeq,paydate,callbackDate,orderRemark)VALUES(#orderNumber#,#orderPrice#,#channel#,#paymentChannel#,#orderUser#,#merchantCode#,#orderDate#,#status#,#upGrade_id#,#transSeq#,#retnISeq#,#paydate#,#callbackDate#,#orderRemark#)
+    	</insert>
+
+		<select id="queryUserUpgradeOrder" parameterClass="cn.seocoo.platform.model.UserUpgradeOrder" resultClass="cn.seocoo.platform.model.UserUpgradeOrder">
+			SELECT * from tb_seocoo_userUpgrade_order 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="orderPrice"> 
+					 	orderPrice = #orderPrice#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="channel"> 
+					 	channel = #channel#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="paymentChannel"> 
+					 	paymentChannel = #paymentChannel#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="orderUser"> 
+					 	orderUser = #orderUser#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="orderDate"> 
+					 	orderDate = #orderDate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="upGrade_id"> 
+					 	upGrade_id = #upGrade_id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="transSeq"> 
+					 	transSeq = #transSeq#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="retnISeq"> 
+					 	retnISeq = #retnISeq#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="paydate"> 
+					 	paydate = #paydate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="callbackDate"> 
+					 	callbackDate = #callbackDate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="orderRemark"> 
+					 	orderRemark = #orderRemark#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateUserUpgradeOrder" parameterClass="cn.seocoo.platform.model.UserUpgradeOrder" >
+			 update tb_seocoo_userUpgrade_order 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="orderPrice"> 
+					 	orderPrice = #orderPrice#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="channel"> 
+					 	channel = #channel#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="paymentChannel"> 
+					 	paymentChannel = #paymentChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="orderUser"> 
+					 	orderUser = #orderUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="orderDate"> 
+					 	orderDate = #orderDate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="upGrade_id"> 
+					 	upGrade_id = #upGrade_id#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="transSeq"> 
+					 	transSeq = #transSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="retnISeq"> 
+					 	retnISeq = #retnISeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="paydate"> 
+					 	paydate = #paydate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="callbackDate"> 
+					 	callbackDate = #callbackDate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="orderRemark"> 
+					 	orderRemark = #orderRemark#
+					</isNotEmpty> 
+				</dynamic> 
+			  where id=#id# 
+		</update>
+		
+		<update id="updateOrderByOrderNumber" parameterClass="cn.seocoo.platform.model.UserUpgradeOrder" >
+			    update tb_seocoo_userUpgrade_order 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="transSeq"> 
+					 	transSeq = #transSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="retnISeq"> 
+					 	retnISeq = #retnISeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="paydate"> 
+					 	paydate = #paydate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="callbackDate"> 
+					 	callbackDate = #callbackDate#
+					</isNotEmpty> 
+				</dynamic> 
+			    where orderNumber = #orderNumber#
+		</update>
+
+		<delete id="deleteUserUpgradeOrder" parameterClass="cn.seocoo.platform.model.UserUpgradeOrder" >
+			DELETE FROM tb_seocoo_userUpgrade_order where id=#id#
+		</delete>
+
+		<select id="queryUserUpgradeOrderPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.UserUpgradeOrder">
+			SELECT * from tb_seocoo_userUpgrade_order 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="orderPrice"> 
+					 	orderPrice = #orderPrice#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="channel"> 
+					 	channel = #channel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="paymentChannel"> 
+					 	paymentChannel = #paymentChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="orderUser"> 
+					 	orderUser = #orderUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="orderDate"> 
+					 	orderDate = #orderDate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="upGrade_id"> 
+					 	upGrade_id = #upGrade_id#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="transSeq"> 
+					 	transSeq = #transSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="retnISeq"> 
+					 	retnISeq = #retnISeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="paydate"> 
+					 	paydate = #paydate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="callbackDate"> 
+					 	callbackDate = #callbackDate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="orderRemark"> 
+					 	orderRemark = #orderRemark#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryUserUpgradeOrderPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_userUpgrade_order 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="orderPrice"> 
+					 	orderPrice = #orderPrice#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="channel"> 
+					 	channel = #channel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="paymentChannel"> 
+					 	paymentChannel = #paymentChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="orderUser"> 
+					 	orderUser = #orderUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="orderDate"> 
+					 	orderDate = #orderDate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="upGrade_id"> 
+					 	upGrade_id = #upGrade_id#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="transSeq"> 
+					 	transSeq = #transSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="retnISeq"> 
+					 	retnISeq = #retnISeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="paydate"> 
+					 	paydate = #paydate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="callbackDate"> 
+					 	callbackDate = #callbackDate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="orderRemark"> 
+					 	orderRemark = #orderRemark#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

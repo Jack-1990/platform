@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Merchant">
+
+	   	<insert id="saveMerchant" parameterClass="cn.seocoo.platform.model.Merchant">
+        	insert into tb_seocoo_merchant(txnSeq,platformId,operId,outMchntId,mchntName,parentMchntId,devType,industryId,acdCode,province,city,address,licId,licIdValidity,corpName,idtCard,contactName,telephone,servTel,identification,autoSettle,remark,message,flag,cmbcMchntId,groupCode,createTime,updateTime,idBeforePic,idAfterPic,checkPic1,checkPic2,businessCardPic,isCert,mchntFullName)VALUES(#txnSeq#,#platformId#,#operId#,#outMchntId#,#mchntName#,#parentMchntId#,#devType#,#industryId#,#acdCode#,#province#,#city#,#address#,#licId#,#licIdValidity#,#corpName#,#idtCard#,#contactName#,#telephone#,#servTel#,#identification#,#autoSettle#,#remark#,#message#,#flag#,#cmbcMchntId#,#groupCode#,#createTime#,#updateTime#,#idBeforePic#,#idAfterPic#,#checkPic1#,#checkPic2#,#businessCardPic#,#isCert#,#mchntFullName#)
+    	</insert>
+
+		<select id="queryMerchant" parameterClass="cn.seocoo.platform.model.Merchant" resultClass="cn.seocoo.platform.model.Merchant">
+			SELECT * from tb_seocoo_merchant 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="operId"> 
+					 	operId = #operId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="outMchntId"> 
+					 	outMchntId = #outMchntId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="mchntName"> 
+					 	mchntName = #mchntName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="parentMchntId"> 
+					 	parentMchntId = #parentMchntId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="devType"> 
+					 	devType = #devType#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="industryId"> 
+					 	industryId = #industryId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="acdCode"> 
+					 	acdCode = #acdCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="province"> 
+					 	province = #province#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="city"> 
+					 	city = #city#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="address"> 
+					 	address = #address#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="licId"> 
+					 	licId = #licId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="licIdValidity"> 
+					 	licIdValidity = #licIdValidity#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="corpName"> 
+					 	corpName = #corpName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="idtCard"> 
+					 	idtCard = #idtCard#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="contactName"> 
+					 	contactName = #contactName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="telephone"> 
+					 	telephone = #telephone#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="servTel"> 
+					 	servTel = #servTel#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="identification"> 
+					 	identification = #identification#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="autoSettle"> 
+					 	autoSettle = #autoSettle#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="remark"> 
+					 	remark = #remark#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="message"> 
+					 	message = #message#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="flag"> 
+					 	flag = #flag#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="idBeforePic"> 
+					 	idBeforePic = #idBeforePic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="idAfterPic"> 
+					 	idAfterPic = #idAfterPic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="checkPic1"> 
+					 	checkPic1 = #checkPic1#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="checkPic2"> 
+					 	checkPic2 = #checkPic2#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="businessCardPic"> 
+					 	businessCardPic = #businessCardPic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="isCert"> 
+					 	isCert = #isCert#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="mchntFullName"> 
+					 	mchntFullName = #mchntFullName#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateMerchant" parameterClass="cn.seocoo.platform.model.Merchant" >
+			update tb_seocoo_merchant 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="platformId"> 
+					 	platformId = #platformId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="operId"> 
+					 	operId = #operId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="outMchntId"> 
+					 	outMchntId = #outMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="mchntName"> 
+					 	mchntName = #mchntName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="parentMchntId"> 
+					 	parentMchntId = #parentMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="devType"> 
+					 	devType = #devType#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="industryId"> 
+					 	industryId = #industryId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="acdCode"> 
+					 	acdCode = #acdCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="province"> 
+					 	province = #province#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="city"> 
+					 	city = #city#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="address"> 
+					 	address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="licId"> 
+					 	licId = #licId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="licIdValidity"> 
+					 	licIdValidity = #licIdValidity#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="corpName"> 
+					 	corpName = #corpName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="idtCard"> 
+					 	idtCard = #idtCard#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="contactName"> 
+					 	contactName = #contactName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="telephone"> 
+					 	telephone = #telephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="servTel"> 
+					 	servTel = #servTel#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="identification"> 
+					 	identification = #identification#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="autoSettle"> 
+					 	autoSettle = #autoSettle#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="remark"> 
+					 	remark = #remark#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="message"> 
+					 	message = #message#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="flag"> 
+					 	flag = #flag#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="idBeforePic"> 
+					 	idBeforePic = #idBeforePic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="idAfterPic"> 
+					 	idAfterPic = #idAfterPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="checkPic1"> 
+					 	checkPic1 = #checkPic1#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="checkPic2"> 
+					 	checkPic2 = #checkPic2#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="businessCardPic"> 
+					 	businessCardPic = #businessCardPic#
+					</isNotEmpty> 
+					 <isNotEmpty prepend="," property="isCert"> 
+					 	isCert = #isCert#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend="," property="mchntFullName"> 
+					 	mchntFullName = #mchntFullName#
+					 </isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteMerchant" parameterClass="cn.seocoo.platform.model.Merchant" >
+			DELETE FROM tb_seocoo_merchant where id=#id#
+		</delete>
+
+		<select id="queryMerchantPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Merchant">
+			SELECT t.*,g.fullName from tb_seocoo_merchant t INNER JOIN tb_seocoo_group g ON t.groupCode = g.groupCode
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="txnSeq"> 
+					 	t.txnSeq = #txnSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="platformId"> 
+					 	t.platformId = #platformId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operId"> 
+					 	t.operId = #operId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="outMchntId"> 
+                        t.outMchntId like '%$outMchntId$%'
+                    </isNotEmpty> 
+                    <isNotEmpty prepend=" and " property="mchntName"> 
+                        t.mchntName like '%$mchntName$%'
+                    </isNotEmpty> 
+					<isNotEmpty prepend=" and " property="parentMchntId"> 
+					 	t.parentMchntId = #parentMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="devType"> 
+					 	t.devType = #devType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="industryId"> 
+					 	t.industryId = #industryId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="acdCode"> 
+					 	t.acdCode = #acdCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="province"> 
+					 	t.province = #province#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="city"> 
+					 	t.city = #city#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="address"> 
+					 	t.address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="licId"> 
+					 	t.licId = #licId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="licIdValidity"> 
+					 	t.licIdValidity = #licIdValidity#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="corpName"> 
+					 	t.corpName = #corpName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idtCard"> 
+					 	t.idtCard = #idtCard#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="contactName"> 
+					 	t.contactName = #contactName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="telephone"> 
+					 	t.telephone = #telephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="servTel"> 
+					 	t.servTel = #servTel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="identification"> 
+					 	t.identification = #identification#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="autoSettle"> 
+					 	t.autoSettle = #autoSettle#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="remark"> 
+					 	t.remark = #remark#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="message"> 
+					 	t.message = #message#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="flag"> 
+					 	t.flag = #flag#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="cmbcMchntId"> 
+					 	t.cmbcMchntId = #cmbcMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	t.groupCode in  
+					 	<iterate property="groupCode" open="(" close=")" conjunction=",">
+							<![CDATA[
+			                    	#groupCode[]#   
+			            		]]>
+						</iterate>
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	t.createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	t.updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idBeforePic"> 
+					 	t.idBeforePic = #idBeforePic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idAfterPic"> 
+					 	t.idAfterPic = #idAfterPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic1"> 
+					 	t.checkPic1 = #checkPic1#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic2"> 
+					 	t.checkPic2 = #checkPic2#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="businessCardPic"> 
+					 	t.businessCardPic = #businessCardPic#
+					</isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="isCert"> 
+					 	t.isCert = #isCert#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="mchntFullName"> 
+					 	t.mchntFullName = #mchntFullName#
+					 </isNotEmpty> 
+				</dynamic> 
+			limit #beginRow#,#pageSize#
+		</select>
+
+		<select id="queryMerchantPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_merchant t INNER JOIN tb_seocoo_group g ON t.groupCode = g.groupCode
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="txnSeq"> 
+					 	t.txnSeq = #txnSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="platformId"> 
+					 	t.platformId = #platformId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operId"> 
+					 	t.operId = #operId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="outMchntId"> 
+                        t.outMchntId like '%$outMchntId$%'
+                    </isNotEmpty> 
+                    <isNotEmpty prepend=" and " property="mchntName"> 
+                        t.mchntName like '%$mchntName$%'
+                    </isNotEmpty> 
+					<isNotEmpty prepend=" and " property="parentMchntId"> 
+					 	t.parentMchntId = #parentMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="devType"> 
+					 	t.devType = #devType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="industryId"> 
+					 	t.industryId = #industryId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="acdCode"> 
+					 	t.acdCode = #acdCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="province"> 
+					 	t.province = #province#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="city"> 
+					 	t.city = #city#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="address"> 
+					 	t.address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="licId"> 
+					 	t.licId = #licId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="licIdValidity"> 
+					 	t.licIdValidity = #licIdValidity#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="corpName"> 
+					 	t.corpName = #corpName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idtCard"> 
+					 	t.idtCard = #idtCard#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="contactName"> 
+					 	t.contactName = #contactName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="telephone"> 
+					 	t.telephone = #telephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="servTel"> 
+					 	t.servTel = #servTel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="identification"> 
+					 	t.identification = #identification#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="autoSettle"> 
+					 	t.autoSettle = #autoSettle#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="remark"> 
+					 	t.remark = #remark#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="message"> 
+					 	t.message = #message#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="flag"> 
+					 	t.flag = #flag#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="cmbcMchntId"> 
+					 	t.cmbcMchntId = #cmbcMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	t.groupCode in  
+					 	<iterate property="groupCode" open="(" close=")" conjunction=",">
+							<![CDATA[
+			                    	#groupCode[]#   
+			            		]]>
+						</iterate>
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	t.createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	t.updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idBeforePic"> 
+					 	t.idBeforePic = #idBeforePic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="idAfterPic"> 
+					 	t.idAfterPic = #idAfterPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic1"> 
+					 	t.checkPic1 = #checkPic1#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="checkPic2"> 
+					 	t.checkPic2 = #checkPic2#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="businessCardPic"> 
+					 	t.businessCardPic = #businessCardPic#
+					</isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="isCert"> 
+					 	t.isCert = #isCert#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="mchntFullName"> 
+					 	t.mchntFullName = #mchntFullName#
+					 </isNotEmpty>
+				</dynamic> 
+		</select>
+
+	<update id="updateMerchantByOutMchntId" parameterClass="cn.seocoo.platform.model.Merchant" >
+			update tb_seocoo_merchant 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="platformId"> 
+					 	platformId = #platformId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="operId"> 
+					 	operId = #operId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="outMchntId"> 
+					 	outMchntId = #outMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="mchntName"> 
+					 	mchntName = #mchntName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="parentMchntId"> 
+					 	parentMchntId = #parentMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="devType"> 
+					 	devType = #devType#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="industryId"> 
+					 	industryId = #industryId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="acdCode"> 
+					 	acdCode = #acdCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="province"> 
+					 	province = #province#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="city"> 
+					 	city = #city#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="address"> 
+					 	address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="licId"> 
+					 	licId = #licId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="licIdValidity"> 
+					 	licIdValidity = #licIdValidity#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="corpName"> 
+					 	corpName = #corpName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="idtCard"> 
+					 	idtCard = #idtCard#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="contactName"> 
+					 	contactName = #contactName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="telephone"> 
+					 	telephone = #telephone#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="servTel"> 
+					 	servTel = #servTel#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="identification"> 
+					 	identification = #identification#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="autoSettle"> 
+					 	autoSettle = #autoSettle#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="remark"> 
+					 	remark = #remark#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="message"> 
+					 	message = #message#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="flag"> 
+					 	flag = #flag#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					</isNotEmpty> 
+					
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="idBeforePic"> 
+					 	idBeforePic = #idBeforePic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="idAfterPic"> 
+					 	idAfterPic = #idAfterPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="checkPic1"> 
+					 	checkPic1 = #checkPic1#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="checkPic2"> 
+					 	checkPic2 = #checkPic2#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="businessCardPic"> 
+					 	businessCardPic = #businessCardPic#
+					</isNotEmpty> 
+					 <isNotEmpty prepend="," property="isCert"> 
+					 	isCert = #isCert#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend="," property="mchntFullName"> 
+					 	mchntFullName = #mchntFullName#
+					 </isNotEmpty> 
+				</dynamic> 
+			where groupCode = #groupCode# and outMchntId = #outMchntId#
+		</update>
+
+
+	<select id="queryMerchantWithMerchantInfo" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Merchant">
+		SELECT m.* FROM tb_seocoo_merchant m  LEFT JOIN tb_seocoo_merchant_info i ON i.merchantCode = m.outMchntId
+		<dynamic prepend="where">
+			<isNotEmpty prepend=" and " property="createUser">
+				i.createUser like '%$createUser$%'
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="certifyStatus">
+				i.certifyStatus in ($certifyStatus$)
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="startDate">
+				i.submitAuditTime >= #startDate#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="endDate">
+				#endDate# >= i.submitAuditTime
+			</isNotEmpty>
+
+			<isNotEmpty prepend=" and " property="merchantCode">
+				i.merchantCode = #merchantCode#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="parentUser">
+				i.parentUser = #parentUser#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="parentMerchantCode">
+				i.parentMerchantCode = #parentMerchantCode#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="bank">
+				i.bank = #bank#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="level">
+				i.level = #level#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="currentTotalProfit">
+				i.currentTotalProfit = #currentTotalProfit#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="totalProfit">
+				i.totalProfit = #totalProfit#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="createTime">
+				i.createTime = #createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="updateTime">
+				i.updateTime = #updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="outMchntId">
+				m.outMchntId like '%$outMchntId$%'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="mchntName">
+				m.mchntName like '%$mchntName$%'
+			</isNotEmpty>
+		</dynamic>
+		ORDER BY m.createTime DESC
+		limit #beginRow# , #pageSize#
+	</select>
+
+	<select id="queryMerchantWithMerchantInfoCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+		SELECT count(*) FROM tb_seocoo_merchant m LEFT JOIN tb_seocoo_merchant_info i ON i.merchantCode = m.outMchntId
+		<dynamic prepend="where">
+			<isNotEmpty prepend=" and " property="createUser">
+				i.createUser like '%$createUser$%'
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="certifyStatus">
+				i.certifyStatus in ($certifyStatus$)
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="startDate">
+				i.submitAuditTime >= #startDate#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="endDate">
+				#endDate# >= i.submitAuditTime
+			</isNotEmpty>
+
+			<isNotEmpty prepend=" and " property="merchantCode">
+				i.merchantCode = #merchantCode#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="parentUser">
+				i.parentUser = #parentUser#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="parentMerchantCode">
+				i.parentMerchantCode = #parentMerchantCode#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="bank">
+				i.bank = #bank#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="level">
+				i.level = #level#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="currentTotalProfit">
+				i.currentTotalProfit = #currentTotalProfit#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="totalProfit">
+				i.totalProfit = #totalProfit#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="createTime">
+				i.createTime = #createTime#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="updateTime">
+				i.updateTime = #updateTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="outMchntId">
+				m.outMchntId like '%$outMchntId$%'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="mchntName">
+				m.mchntName like '%$mchntName$%'
+			</isNotEmpty>
+		</dynamic>
+	</select>
+
+</sqlMap>

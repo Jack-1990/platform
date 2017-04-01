@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="PayChannel">
+
+	   	<insert id="savePayChannel" parameterClass="cn.seocoo.platform.model.PayChannel">
+        	insert into tb_seocoo_payChannel(groupCode,txnSeq,platformId,operId,merchantCode,cmbcMchntId,apiCode,industryId,operateType,dayLimit,monthLimit,fixFeeRate,specFeeRate,account,pbcBankId,acctName,acctType,message,status,createTime,updateTime,cmbcSignId,apiCodeDesc,logoPic)VALUES(#groupCode#,#txnSeq#,#platformId#,#operId#,#merchantCode#,#cmbcMchntId#,#apiCode#,#industryId#,#operateType#,#dayLimit#,#monthLimit#,#fixFeeRate#,#specFeeRate#,#account#,#pbcBankId#,#acctName#,#acctType#,#message#,#status#,#createTime#,#updateTime#,#cmbcSignId#,#apiCodeDesc#,#logoPic#)
+    	</insert>
+
+		<select id="queryPayChannel" parameterClass="cn.seocoo.platform.model.PayChannel" resultClass="cn.seocoo.platform.model.PayChannel">
+			SELECT * from tb_seocoo_payChannel 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="operId"> 
+					 	operId = #operId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="apiCode"> 
+					 	apiCode = #apiCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="industryId"> 
+					 	industryId = #industryId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="operateType"> 
+					 	operateType = #operateType#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="dayLimit"> 
+					 	dayLimit = #dayLimit#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="monthLimit"> 
+					 	monthLimit = #monthLimit#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="fixFeeRate"> 
+					 	fixFeeRate = #fixFeeRate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="specFeeRate"> 
+					 	specFeeRate = #specFeeRate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="account"> 
+					 	account = #account#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="pbcBankId"> 
+					 	pbcBankId = #pbcBankId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="acctName"> 
+					 	acctName = #acctName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="acctType"> 
+					 	acctType = #acctType#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="message"> 
+					 	message = #message#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="cmbcSignId"> 
+					 	cmbcSignId = #cmbcSignId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="apiCodeDesc"> 
+					 	apiCodeDesc = #apiCodeDesc#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="logoPic"> 
+					 	logoPic = #logoPic#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updatePayChannel" parameterClass="cn.seocoo.platform.model.PayChannel" >
+			update tb_seocoo_payChannel 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="platformId"> 
+					 	platformId = #platformId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="operId"> 
+					 	operId = #operId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="apiCode"> 
+					 	apiCode = #apiCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="industryId"> 
+					 	industryId = #industryId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="operateType"> 
+					 	operateType = #operateType#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="dayLimit"> 
+					 	dayLimit = #dayLimit#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="monthLimit"> 
+					 	monthLimit = #monthLimit#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="fixFeeRate"> 
+					 	fixFeeRate = #fixFeeRate#
+					</isNotEmpty> 
+					<isNotNull prepend="," property="specFeeRate"> 
+					 	specFeeRate = #specFeeRate#
+					</isNotNull> 
+					<isNotEmpty prepend="," property="account"> 
+					 	account = #account#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="pbcBankId"> 
+					 	pbcBankId = #pbcBankId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="acctName"> 
+					 	acctName = #acctName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="acctType"> 
+					 	acctType = #acctType#
+					</isNotEmpty> 
+					<isNotNull prepend="," property="message"> 
+					 	message = #message#
+					</isNotNull> 
+					<isNotEmpty prepend="," property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="cmbcSignId"> 
+					 	cmbcSignId = #cmbcSignId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="apiCodeDesc"> 
+					 	apiCodeDesc = #apiCodeDesc#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="logoPic"> 
+					 	logoPic = #logoPic#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deletePayChannel" parameterClass="cn.seocoo.platform.model.PayChannel" >
+			DELETE FROM tb_seocoo_payChannel where id=#id#
+		</delete>
+
+		<select id="queryPayChannelPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.PayChannel">
+			SELECT * from tb_seocoo_payChannel 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operId"> 
+					 	operId = #operId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="apiCode"> 
+					 	apiCode = #apiCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="industryId"> 
+					 	industryId = #industryId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operateType"> 
+					 	operateType = #operateType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="dayLimit"> 
+					 	dayLimit = #dayLimit#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="monthLimit"> 
+					 	monthLimit = #monthLimit#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="fixFeeRate"> 
+					 	fixFeeRate = #fixFeeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="specFeeRate"> 
+					 	specFeeRate = #specFeeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="account"> 
+					 	account = #account#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="pbcBankId"> 
+					 	pbcBankId = #pbcBankId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="acctName"> 
+					 	acctName = #acctName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="acctType"> 
+					 	acctType = #acctType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="message"> 
+					 	message = #message#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="cmbcSignId"> 
+					 	cmbcSignId = #cmbcSignId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="apiCodeDesc"> 
+					 	apiCodeDesc = #apiCodeDesc#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="logoPic"> 
+					 	logoPic = #logoPic#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryPayChannelPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_payChannel 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operId"> 
+					 	operId = #operId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="apiCode"> 
+					 	apiCode = #apiCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="industryId"> 
+					 	industryId = #industryId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operateType"> 
+					 	operateType = #operateType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="dayLimit"> 
+					 	dayLimit = #dayLimit#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="monthLimit"> 
+					 	monthLimit = #monthLimit#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="fixFeeRate"> 
+					 	fixFeeRate = #fixFeeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="specFeeRate"> 
+					 	specFeeRate = #specFeeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="account"> 
+					 	account = #account#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="pbcBankId"> 
+					 	pbcBankId = #pbcBankId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="acctName"> 
+					 	acctName = #acctName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="acctType"> 
+					 	acctType = #acctType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="message"> 
+					 	message = #message#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="cmbcSignId"> 
+					 	cmbcSignId = #cmbcSignId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="apiCodeDesc"> 
+					 	apiCodeDesc = #apiCodeDesc#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="logoPic"> 
+					 	logoPic = #logoPic#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+		<select id="queryPayChannelByGroupCodes"  parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.PayChannel">
+		SELECT * from tb_seocoo_payChannel 
+			<dynamic prepend="where"> 
+				 <isNotEmpty prepend=" and " property="groupCode"> 
+				 	groupCode in
+				 	<iterate property="groupCode" open="(" close=")" conjunction=",">
+						<![CDATA[
+		                    	#groupCode[]#   
+		            		]]>
+					</iterate>
+				</isNotEmpty>
+				<isNotEmpty prepend=" and " property="status">
+					status = #status#
+				</isNotEmpty>
+			</dynamic> 
+		</select>
+
+	<select id="queryPayChannelByMerchantCodes"  parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.PayChannel">
+		SELECT * from tb_seocoo_payChannel
+		<dynamic prepend="where">
+			<isNotEmpty prepend=" and " property="merchantCode">
+				merchantCode in
+				<iterate property="merchantCode" open="(" close=")" conjunction=",">
+					<![CDATA[
+		                    	#merchantCode[]#
+		            		]]>
+				</iterate>
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="status">
+				status = #status#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+</sqlMap>

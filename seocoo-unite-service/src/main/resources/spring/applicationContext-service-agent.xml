@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+			default-autowire="byName" default-lazy-init="true">
+	 <bean id="queryMerchantInfoService" class="cn.seocoo.platform.unite.server.impl.QueryMerchantInfoServiceImpl"></bean>
+     <bean id="submitOrderService" class="cn.seocoo.platform.unite.server.impl.SubmitOrderServiceImpl"></bean>
+	
+	 <bean id="queryPayTypeService" class="cn.seocoo.platform.unite.server.impl.QueryPayTypeServiceImpl"></bean>
+	 <bean id="queryPayResultService" class="cn.seocoo.platform.unite.server.impl.QueryPayResultServiceImpl"></bean>
+	 <bean id="queryPrintStreamService" class="cn.seocoo.platform.unite.server.impl.QueryPrintStreamServiceImpl"></bean>
+     <bean id="netPluginVersionService" class="cn.seocoo.platform.unite.server.impl.NetPluginVersionServiceImpl"></bean>
+     
+     <bean id="merchantRegisterService" class="cn.seocoo.platform.unite.server.impl.MerchantRegisterServiceImpl"></bean>
+     <bean id="appLandService" class="cn.seocoo.platform.unite.server.impl.AppLandServiceImpl"></bean>
+     <bean id="queryPayProfitService" class="cn.seocoo.platform.unite.server.impl.QueryPayProfitServiceImpl"></bean>
+     <bean id="queryMerchantRateService" class="cn.seocoo.platform.unite.server.impl.QueryMerchantRateServiceImpl"></bean>
+     <bean id="queryProfitDetailService" class="cn.seocoo.platform.unite.server.impl.QueryProfitDetailServiceImpl"></bean>
+     <bean id="queryMyMerchantService" class="cn.seocoo.platform.unite.server.impl.QueryMyMerchantServiceImpl"></bean>
+     <bean id="queryDirectMerchantService" class="cn.seocoo.platform.unite.server.impl.QueryDirectMerchantServiceImpl"></bean>
+     <bean id="queryAdviceImageService" class="cn.seocoo.platform.unite.server.impl.QueryAdviceImageServiceImpl"></bean>
+     <bean id="queryOrderInfoService" class="cn.seocoo.platform.unite.server.impl.QueryOrderInfoServiceImpl"></bean>
+     <bean id="submitWithdrawCashService" class="cn.seocoo.platform.unite.server.impl.SubmitWithdrawCashServiceImpl"></bean>
+     <bean id="queryWithdrawCashInfoService" class="cn.seocoo.platform.unite.server.impl.QueryWithdrawCashInfoServiceImpl"></bean>
+
+     <bean id="androidVersionService" class="cn.seocoo.platform.unite.server.impl.AndroidVersionServiceImpl"></bean>
+     <bean id="queryAreaService" class="cn.seocoo.platform.unite.server.impl.QueryAreaServiceImpl"></bean>
+     <bean id="queryMerAuditStatusService" class="cn.seocoo.platform.unite.server.impl.QueryMerAuditStatusServiceImpl"></bean>
+     <bean id="personInfoBindingService" class="cn.seocoo.platform.unite.server.impl.PersonInfoBindingServiceImpl"></bean>
+     <bean id="bankInfoBindingService" class="cn.seocoo.platform.unite.server.impl.BankInfoBindingServiceImpl"></bean>
+     <bean id="queryAffiliatedBankService" class="cn.seocoo.platform.unite.server.impl.QueryAffiliatedBankServiceImpl"></bean>
+     <bean id="queryBankByKeyService" class="cn.seocoo.platform.unite.server.impl.QueryBankByKeyServiceImpl"></bean>
+     <bean id="queryUserImageService" class="cn.seocoo.platform.unite.server.impl.QueryUserImageServiceImpl"></bean>
+     <bean id="userImageBingdingService" class="cn.seocoo.platform.unite.server.impl.UserImageBingdingServiceImpl"></bean>
+     <bean id="queryMerchantUserService" class="cn.seocoo.platform.unite.server.impl.QueryMerchantUserServiceImpl"></bean>
+     <bean id="userHeadPicBingdingService" class="cn.seocoo.platform.unite.server.impl.UserHeadPicBingdingServiceImpl"></bean>
+     <bean id="submitUserInfoService" class="cn.seocoo.platform.unite.server.impl.SubmitUserInfoServiceImpl"></bean>
+     <bean id="countPayProfitService" class="cn.seocoo.platform.unite.server.impl.CountPayProfitServiceImpl"></bean>
+     <bean id="queryUserBankService" class="cn.seocoo.platform.unite.server.impl.QueryUserBankServiceImpl"></bean>
+     <bean id="checkValidateCodeService" class="cn.seocoo.platform.unite.server.impl.CheckValidateCodeServiceImpl"></bean>
+     <bean id="sendValidateCodeService" class="cn.seocoo.platform.unite.server.impl.SendValidateCodeServiceImpl"></bean>
+     <bean id="queryUpgradeListService" class="cn.seocoo.platform.unite.server.impl.QueryUpgradeListServiceImpl"></bean>
+     <bean id="userUpgradeService" class="cn.seocoo.platform.service.userUpgrade.impl.UserUpgradeServiceImpl"  scope="prototype"/>
+     
+     <bean id="acceptDeviceTokenService" class="cn.seocoo.platform.unite.server.impl.AcceptDeviceTokenServiceImpl"></bean>
+     <bean id="queryAppUserInfoService" class="cn.seocoo.platform.unite.server.impl.QueryAppUserInfoServiceImpl"></bean>
+     <bean id="queryWapPageService" class="cn.seocoo.platform.unite.server.impl.QueryWapPageServiceImpl"></bean>
+     <bean id="queryPushMsgService" class="cn.seocoo.platform.unite.server.impl.QueryPushMsgServiceImpl"></bean>
+     <bean id="queryMyAuditMerchantService" class="cn.seocoo.platform.unite.server.impl.QueryMyAuditMerchantServiceImpl"></bean>
+     <bean id="merchantToCodeService" class="cn.seocoo.platform.unite.server.impl.MerchantToCodeServiceImpl"></bean>
+
+     <bean id="submitUpgradeOrderService" class="cn.seocoo.platform.unite.server.impl.SubmitUpgradeOrderServiceImpl"></bean>
+     <bean id="queryUpgradeOrderService" class="cn.seocoo.platform.unite.server.impl.QueryUpgradeOrderServiceImpl"></bean>
+     <bean id="queryLevelRateService" class="cn.seocoo.platform.unite.server.impl.QueryLevelRateServiceImpl"></bean>
+     <bean id="appLogoutService" class="cn.seocoo.platform.unite.server.impl.AppLogoutServiceImpl"></bean>
+     <bean id="promoteUpgradeService" class="cn.seocoo.platform.unite.server.impl.PromoteUpgradeServiceImpl"></bean>
+     
+     <bean id="updateUserPasswordService" class="cn.seocoo.platform.unite.server.impl.UpdateUserPasswordServiceImpl"></bean>
+     <bean id="queryUserExistsService" class="cn.seocoo.platform.unite.server.impl.QueryUserExistsServiceImpl"></bean>
+     
+</beans>

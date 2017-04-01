@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="AllLevelRate">
+
+	   	<insert id="saveAllLevelRate" parameterClass="cn.seocoo.platform.model.AllLevelRate">
+        	insert into tb_seocoo_allLevelRate(levelCode,levelName,payChannel,payChannelName,rate,bank,levelPic,createTime,updateTime)VALUES(#levelCode#,#levelName#,#payChannel#,#payChannelName#,#rate#,#bank#,#levelPic#,#createTime#,#updateTime#)
+    	</insert>
+
+		<select id="queryAllLevelRate" parameterClass="cn.seocoo.platform.model.AllLevelRate" resultClass="cn.seocoo.platform.model.AllLevelRate">
+			SELECT * from tb_seocoo_allLevelRate 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="levelCode"> 
+					 	levelCode = #levelCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="levelName"> 
+					 	levelName = #levelName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="payChannelName"> 
+					 	payChannelName = #payChannelName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="rate"> 
+					 	rate = #rate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bank"> 
+					 	bank = #bank#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="levelPic"> 
+					 	levelPic = #levelPic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateAllLevelRate" parameterClass="cn.seocoo.platform.model.AllLevelRate" >
+			update tb_seocoo_allLevelRate 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="levelCode"> 
+					 	levelCode = #levelCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="levelName"> 
+					 	levelName = #levelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="payChannel"> 
+					 	payChannel = #payChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="payChannelName"> 
+					 	payChannelName = #payChannelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="rate"> 
+					 	rate = #rate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bank"> 
+					 	bank = #bank#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="levelPic"> 
+					 	levelPic = #levelPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteAllLevelRate" parameterClass="cn.seocoo.platform.model.AllLevelRate" >
+			DELETE FROM tb_seocoo_allLevelRate where id=#id#
+		</delete>
+
+		<select id="queryAllLevelRatePage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.AllLevelRate">
+			SELECT * from tb_seocoo_allLevelRate 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="levelCode"> 
+					 	levelCode = #levelCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="levelName"> 
+					 	levelName = #levelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="payChannelName"> 
+					 	payChannelName = #payChannelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rate"> 
+					 	rate = #rate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bank"> 
+					 	bank = #bank#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="levelPic"> 
+					 	levelPic = #levelPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryAllLevelRatePageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_allLevelRate 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="levelCode"> 
+					 	levelCode = #levelCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="levelName"> 
+					 	levelName = #levelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="payChannelName"> 
+					 	payChannelName = #payChannelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rate"> 
+					 	rate = #rate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bank"> 
+					 	bank = #bank#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="levelPic"> 
+					 	levelPic = #levelPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		
+		<select id="queryLevelList" parameterClass="cn.seocoo.platform.model.AllLevelRate" resultClass="cn.seocoo.platform.model.AllLevelRate">
+			SELECT DISTINCT  levelCode,levelName,levelPic  
+			FROM  tb_seocoo_allLevelRate 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="levelCode"> 
+					 	levelCode = #levelCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="levelName"> 
+					 	levelName = #levelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="payChannelName"> 
+					 	payChannelName = #payChannelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="rate"> 
+					 	rate = #rate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bank"> 
+					 	bank = #bank#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="levelPic"> 
+					 	levelPic = #levelPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

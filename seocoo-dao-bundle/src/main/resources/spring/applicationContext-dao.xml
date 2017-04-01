@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+			default-autowire="byName" default-lazy-init="true">
+			
+		<bean id="demoDao" class="cn.seocoo.platform.dao.demo.impl.DemoDaoImpl" parent="entityManagerImpl" />
+		<bean id="systemConfigDao" class="cn.seocoo.platform.dao.systemconfig.impl.SystemConfigDaoImpl" parent="entityManagerImpl" />
+		
+		
+		<bean id="createMerchantLogDao" class="cn.seocoo.platform.dao.createMerchantLog.impl.CreateMerchantLogDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="groupDao" class="cn.seocoo.platform.dao.group.impl.GroupDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="merchantDao" class="cn.seocoo.platform.dao.merchant.impl.MerchantDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="orderDao" class="cn.seocoo.platform.dao.order.impl.OrderDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="payChannelDao" class="cn.seocoo.platform.dao.payChannel.impl.PayChannelDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="userRelationshipDao" class="cn.seocoo.platform.dao.userRelationship.impl.UserRelationshipDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="qqdicDao" class="cn.seocoo.platform.dao.qqdic.impl.QqdicDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="wxdicDao" class="cn.seocoo.platform.dao.wxdic.impl.WxdicDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="zfbdicDao" class="cn.seocoo.platform.dao.zfbdic.impl.ZfbdicDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="areaDao" class="cn.seocoo.platform.dao.area.impl.AreaDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		
+		<bean id="rateDimDao" class="cn.seocoo.platform.dao.rateDim.impl.RateDimDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="rateDimAttrDao" class="cn.seocoo.platform.dao.rateDimAttr.impl.RateDimAttrDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="rateSkuDao" class="cn.seocoo.platform.dao.rateSku.impl.RateSkuDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="dimDicDao" class="cn.seocoo.platform.dao.dimDic.impl.DimDicDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="dimDicInfoDao" class="cn.seocoo.platform.dao.dimDicInfo.impl.DimDicInfoDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		
+		
+		<bean id="merchantSnRefDao" class="cn.seocoo.platform.dao.merchantSnRef.impl.MerchantSnRefDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="printerDao" class="cn.seocoo.platform.dao.printer.impl.PrinterDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="printFalseDao" class="cn.seocoo.platform.dao.printFalse.impl.PrintFalseDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="printRecordDao" class="cn.seocoo.platform.dao.printRecord.impl.PrintRecordDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="merchantNetSnDao" class="cn.seocoo.platform.dao.merchantNetSn.impl.MerchantNetSnDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		
+		
+		<bean id="merchantRateDao" class="cn.seocoo.platform.dao.merchantRate.impl.MerchantRateDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="merchantRateLogDao" class="cn.seocoo.platform.dao.merchantRateLog.impl.MerchantRateLogDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="userLevelDao" class="cn.seocoo.platform.dao.userLevel.impl.UserLevelDaoImpl" parent="entityManagerImpl" scope="prototype" />
+        <bean id="paymentProfitDao" class="cn.seocoo.platform.dao.paymentProfit.impl.PaymentProfitDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="merchantUserDao" class="cn.seocoo.platform.dao.merchantUser.impl.MerchantUserDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		
+		
+		<bean id="adviceImageDao" class="cn.seocoo.platform.dao.adviceImage.impl.AdviceImageDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="withdrawCashDao" class="cn.seocoo.platform.dao.withdrawCash.impl.WithdrawCashDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		
+		<bean id="userBankDao" class="cn.seocoo.platform.dao.userBank.impl.UserBankDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="userImageDao" class="cn.seocoo.platform.dao.userImage.impl.UserImageDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="bankInfoDao" class="cn.seocoo.platform.dao.bankInfo.impl.BankInfoDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="bankDao" class="cn.seocoo.platform.dao.bank.impl.BankDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		
+		<bean id="merchantInfoDao" class="cn.seocoo.platform.dao.merchantInfo.impl.MerchantInfoDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="userIdinfoDao" class="cn.seocoo.platform.dao.userIdinfo.impl.UserIdinfoDaoImpl" parent="entityManagerImpl" scope="prototype" />
+
+		<bean id="upgradeDao" class="cn.seocoo.platform.dao.upgrade.impl.UpgradeDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		<bean id="userUpgradeDao" class="cn.seocoo.platform.dao.userUpgrade.impl.UserUpgradeDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		
+	   <bean id="validatecodeDao" class="cn.seocoo.platform.dao.validatecode.impl.ValidatecodeDaoImpl" parent="entityManagerImpl" scope="prototype" />
+	   <bean id="pushMsgDao" class="cn.seocoo.platform.dao.pushMsg.impl.PushMsgDaoImpl" parent="entityManagerImpl" scope="prototype" />
+	   <bean id="wapPageDao" class="cn.seocoo.platform.dao.wapPage.impl.WapPageDaoImpl" parent="entityManagerImpl" scope="prototype" />
+	   
+	   <bean id="userUpgradeOrderDao" class="cn.seocoo.platform.dao.userUpgradeOrder.impl.UserUpgradeOrderDaoImpl" parent="entityManagerImpl" scope="prototype" />
+	   <bean id="allLevelRateDao" class="cn.seocoo.platform.dao.allLevelRate.impl.AllLevelRateDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		 <bean id="merchantProfitLogDao" class="cn.seocoo.platform.dao.merchantProfitLog.impl.MerchantProfitLogDaoImpl" parent="entityManagerImpl" scope="prototype" />
+		 
+	   <bean id="groupMerchantPayDao" class="cn.seocoo.platform.dao.groupMerchantPay.impl.GroupMerchantPayDaoImpl" parent="entityManagerImpl" scope="prototype" />
+	
+</beans>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Order">
+
+	<insert id="saveOrder" parameterClass="cn.seocoo.platform.model.Order">
+        	insert into tb_seocoo_order(platformId,merchantNo,selectTradeType,amount,orderNumber,merchantSeq,orderInfo,transTime,notifyUrl,remark,payCode,status,merchantCode,channel,finnishTime,scanStyle,payChannel)VALUES(#platformId#,#merchantNo#,#selectTradeType#,#amount#,#orderNumber#,#merchantSeq#,#orderInfo#,#transTime#,#notifyUrl#,#remark#,#payCode#,#status#,#merchantCode#,#channel#,#finnishTime#,#scanStyle#,#payChannel#)
+	</insert>
+
+	<select id="queryOrder" parameterClass="cn.seocoo.platform.model.Order" resultClass="cn.seocoo.platform.model.Order">
+			SELECT * from tb_seocoo_order 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantNo"> 
+					 	merchantNo = #merchantNo#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="selectTradeType"> 
+					 	selectTradeType = #selectTradeType#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="amount"> 
+					 	amount = #amount#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantSeq"> 
+					 	merchantSeq = #merchantSeq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderInfo"> 
+					 	orderInfo = #orderInfo#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="transTime"> 
+					 	transTime = #transTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="notifyUrl"> 
+					 	notifyUrl = #notifyUrl#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="remark"> 
+					 	remark = #remark#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="payCode"> 
+					 	payCode = #payCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="channel"> 
+					 	channel = #channel#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="finnishTime"> 
+					 	finnishTime = #finnishTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="scanStyle"> 
+					 	scanStyle = #scanStyle#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+			</isNotEmpty> 
+		</dynamic> 
+	</select>
+
+	<update id="updateOrder" parameterClass="cn.seocoo.platform.model.Order" >
+			update tb_seocoo_order 
+		<dynamic prepend="set"> 
+			<isNotEmpty prepend="," property="platformId"> 
+					 	platformId = #platformId#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="merchantNo"> 
+					 	merchantNo = #merchantNo#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="selectTradeType"> 
+					 	selectTradeType = #selectTradeType#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="amount"> 
+					 	amount = #amount#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="merchantSeq"> 
+					 	merchantSeq = #merchantSeq#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="orderInfo"> 
+					 	orderInfo = #orderInfo#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="transTime"> 
+					 	transTime = #transTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="notifyUrl"> 
+					 	notifyUrl = #notifyUrl#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="remark"> 
+					 	remark = #remark#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="payCode"> 
+					 	payCode = #payCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="status"> 
+					 	status = #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="channel"> 
+					 	channel = #channel#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="finnishTime"> 
+					 	finnishTime = #finnishTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="scanStyle"> 
+					 	scanStyle = #scanStyle#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="payChannel"> 
+					 	payChannel = #payChannel#
+			</isNotEmpty> 
+		</dynamic> 
+			where id=#id# 
+	</update>
+		
+	<update id="updateOrderByMno" parameterClass="cn.seocoo.platform.model.Order" >
+			update tb_seocoo_order set status = #status# ,finnishTime = #finnishTime#,bankTradeNo=#bankTradeNo#,cardNo=#cardNo#,cbCode=#cbCode#,cardName=#cardName#,centerInfo=#centerInfo#,serialNo=#serialNo#,voucherNo=#voucherNo#
+			where merchantSeq = #merchantSeq# and  merchantNo = #merchantNo#
+	</update>
+		
+	<update id="updateTradeByMno" parameterClass="cn.seocoo.platform.model.Order" >
+			update tb_seocoo_order set status = #status# ,orderAmount=#orderAmount#,orderNote=#orderNote#,reserve=#reserve#,refundOperator=#refundOperator#,voucherNo=#voucherNo#
+			where merchantSeq = #merchantSeq# and  merchantNo = #merchantNo#
+	</update>
+
+	<delete id="deleteOrder" parameterClass="cn.seocoo.platform.model.Order" >
+			DELETE FROM tb_seocoo_order where id=#id#
+	</delete>
+
+	<select id="queryOrderPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Order">
+			SELECT * from tb_seocoo_order 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantNo"> 
+					 	merchantNo = #merchantNo#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="selectTradeType"> 
+					 	selectTradeType = #selectTradeType#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="amount"> 
+					 	amount = #amount#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantSeq"> 
+					 	merchantSeq = #merchantSeq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderInfo"> 
+					 	orderInfo = #orderInfo#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="transTime"> 
+					 	transTime = #transTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="notifyUrl"> 
+					 	notifyUrl = #notifyUrl#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="remark"> 
+					 	remark = #remark#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="payCode"> 
+					 	payCode = #payCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="status"> 
+					 	status >= #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="channel"> 
+					 	channel = #channel#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="finnishTime"> 
+					 	finnishTime = #finnishTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="startDate"> 
+					 	transTime >= #startDate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="endDate"> 
+					   #endDate# >= transTime
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="scanStyle"> 
+					 	scanStyle = #scanStyle#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+			</isNotEmpty> 
+		</dynamic> 
+			order by transTime DESC
+			limit #pageSize#  offset  #offset#  
+	</select>
+
+	<select id="queryOrderPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_order 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantNo"> 
+					 	merchantNo = #merchantNo#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="selectTradeType"> 
+					 	selectTradeType = #selectTradeType#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="amount"> 
+					 	amount = #amount#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantSeq"> 
+					 	merchantSeq = #merchantSeq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderInfo"> 
+					 	orderInfo = #orderInfo#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="transTime"> 
+					 	transTime = #transTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="notifyUrl"> 
+					 	notifyUrl = #notifyUrl#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="remark"> 
+					 	remark = #remark#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="payCode"> 
+					 	payCode = #payCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="status"> 
+					 	status >= #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="channel"> 
+					 	channel = #channel#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="finnishTime"> 
+					 	finnishTime = #finnishTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="startDate"> 
+					 	transTime >= #startDate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="endDate"> 
+					   #endDate# >= transTime
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="scanStyle"> 
+					 	scanStyle = #scanStyle#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+			</isNotEmpty> 
+		</dynamic> 
+	</select>
+
+
+	<select id="queryOrderByTime" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Order">
+			SELECT amount,orderNumber,finnishTime,payChannel,status from tb_seocoo_order 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantNo"> 
+					 	merchantNo = #merchantNo#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="selectTradeType"> 
+					 	selectTradeType = #selectTradeType#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="amount"> 
+					 	amount = #amount#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantSeq"> 
+					 	merchantSeq = #merchantSeq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderInfo"> 
+					 	orderInfo = #orderInfo#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="transTime"> 
+					 	transTime = #transTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="notifyUrl"> 
+					 	notifyUrl = #notifyUrl#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="payCode"> 
+					 	payCode = #payCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="status"> 
+					 	status >= #status#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="channel"> 
+					 	channel = #channel#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="finnishTime"> 
+					 	finnishTime = #finnishTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="startDate"> 
+					 	finnishTime >= #startDate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="endDate"> 
+					   #endDate# >= finnishTime
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="scanStyle"> 
+					 	scanStyle = #scanStyle#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+			</isNotEmpty> 
+		</dynamic> 
+		order by transTime DESC
+		limit #beginRow# , #pageSize#   
+	</select>
+</sqlMap>

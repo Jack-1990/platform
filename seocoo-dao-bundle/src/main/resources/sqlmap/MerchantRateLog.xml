@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="MerchantRateLog">
+
+	   	<insert id="saveMerchantRateLog" parameterClass="cn.seocoo.platform.model.MerchantRateLog">
+        	insert into tb_seocoo_merchantRate_log(merchantCode,payChannel,intoRate,tradeRate,createTime,logCreateTime)VALUES(#merchantCode#,#payChannel#,#intoRate#,#tradeRate#,#createTime#,#logCreateTime#)
+    	</insert>
+
+		<select id="queryMerchantRateLog" parameterClass="cn.seocoo.platform.model.MerchantRateLog" resultClass="cn.seocoo.platform.model.MerchantRateLog">
+			SELECT * from tb_seocoo_merchantRate_log 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="intoRate"> 
+					 	intoRate = #intoRate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="logCreateTime"> 
+					 	logCreateTime = #logCreateTime#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateMerchantRateLog" parameterClass="cn.seocoo.platform.model.MerchantRateLog" >
+			update tb_seocoo_merchantRate_log 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="payChannel"> 
+					 	payChannel = #payChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="intoRate"> 
+					 	intoRate = #intoRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="logCreateTime"> 
+					 	logCreateTime = #logCreateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteMerchantRateLog" parameterClass="cn.seocoo.platform.model.MerchantRateLog" >
+			DELETE FROM tb_seocoo_merchantRate_log where id=#id#
+		</delete>
+
+		<select id="queryMerchantRateLogPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.MerchantRateLog">
+			SELECT * from tb_seocoo_merchantRate_log 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="intoRate"> 
+					 	intoRate = #intoRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="logCreateTime"> 
+					 	logCreateTime = #logCreateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryMerchantRateLogPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_merchantRate_log 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="intoRate"> 
+					 	intoRate = #intoRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="logCreateTime"> 
+					 	logCreateTime = #logCreateTime#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

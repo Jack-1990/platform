@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="interactiveLog">
+	<typeAlias alias="InteractiveLog" type="cn.seocoo.platform.unite.InteractiveLog" />
+	
+	<select id="query" resultClass="InteractiveLog" parameterClass="InteractiveLog">
+		select * from tb_seocoo_interactive_log where transactionID=#transactionID#
+		
+	</select>
+	
+	<insert id="insert" parameterClass="InteractiveLog">
+		insert into tb_seocoo_interactive_log(transactionID,SrcSysID,ServiceCode,ip,mac,reqMsg,respMsg,modifyDate,costTime)
+			values(#transactionID#,#SrcSysID#,#ServiceCode#,#ip#,#mac#,#reqMsg#,#respMsg#,#modifyDate#,#costTime#)
+	</insert>
+	
+	<update id="update" parameterClass="InteractiveLog">
+		update tb_seocoo_interactive_log
+		<dynamic prepend="set">
+			<isNotEmpty prepend=" , " property="SrcSysID">
+				SrcSysID = #SrcSysID#
+	      </isNotEmpty>
+	      	<isNotEmpty prepend=" , " property="ServiceCode">
+				ServiceCode = #ServiceCode#
+	      </isNotEmpty>
+	      	<isNotEmpty prepend=" , " property="ip">
+				ip = #ip#
+	      </isNotEmpty>
+	      	<isNotEmpty prepend=" , " property="mac">
+				mac = #mac#
+	      </isNotEmpty>
+	      	<isNotEmpty prepend=" , " property="reqMsg">
+				reqMsg = #reqMsg#
+	      </isNotEmpty>
+	      	<isNotEmpty prepend=" , " property="respMsg">
+				respMsg = #respMsg#
+	      </isNotEmpty>
+	      	<isNotEmpty prepend=" , " property="modifyDate">
+				modifyDate = now()
+	      </isNotEmpty>
+	      	<isNotEmpty prepend=" , " property="costTime">
+				costTime = #costTime#
+	      </isNotEmpty>
+	    </dynamic>
+	    where transactionID=#transactionID#
+	</update>
+	
+	
+</sqlMap>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="paySetting" extends="default" namespace="/">
+		
+		<action name="paySetting" method="paySetting" class="paySettingAction">
+			<result name="adviceImage">/pages/adviceImage/adviceImage.jsp</result>
+			<result name="paySetting">/pages/adviceImage/paySetting.jsp</result>
+			<result name="staticQRCode">/pages/adviceImage/staticQRCode.jsp</result>
+			<result name="snSeting">/pages/adviceImage/snSeting.jsp</result>
+		</action>
+		
+	</package>
+</struts>

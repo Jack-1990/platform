@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserLevel">
+
+	   	<insert id="saveUserLevel" parameterClass="cn.seocoo.platform.model.UserLevel">
+        	insert into tb_seocoo_userLevel(levelName,levelValue)VALUES(#levelName#,#levelValue#)
+    	</insert>
+
+		<select id="queryUserLevel" parameterClass="cn.seocoo.platform.model.UserLevel" resultClass="cn.seocoo.platform.model.UserLevel">
+			SELECT * from tb_seocoo_userLevel 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="levelName"> 
+					 	levelName = #levelName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="levelValue"> 
+					 	levelValue = #levelValue#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateUserLevel" parameterClass="cn.seocoo.platform.model.UserLevel" >
+			update tb_seocoo_userLevel 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="levelName"> 
+					 	levelName = #levelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="levelValue"> 
+					 	levelValue = #levelValue#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteUserLevel" parameterClass="cn.seocoo.platform.model.UserLevel" >
+			DELETE FROM tb_seocoo_userLevel where id=#id#
+		</delete>
+
+		<select id="queryUserLevelPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.UserLevel">
+			SELECT * from tb_seocoo_userLevel 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="levelName"> 
+					 	levelName = #levelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="levelValue"> 
+					 	levelValue = #levelValue#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryUserLevelPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_userLevel 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="levelName"> 
+					 	levelName = #levelName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="levelValue"> 
+					 	levelValue = #levelValue#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

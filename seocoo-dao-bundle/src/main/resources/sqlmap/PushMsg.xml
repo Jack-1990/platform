@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="PushMsg">
+
+	   	<insert id="savePushMsg" parameterClass="cn.seocoo.platform.model.PushMsg">
+        	insert into tb_seocoo_pushMsg(msgFrom,msgCotent,msgTitle,target,terminal,createTime,msgType,msgUrl)VALUES(#msgFrom#,#msgCotent#,#msgTitle#,#target#,#terminal#,#createTime#,#msgType#,#msgUrl#)
+    	</insert>
+    	
+    	<insert id="insertPushMsg" parameterClass="cn.seocoo.platform.model.PushMsg">
+        	insert into tb_seocoo_pushMsg(msgFrom,msgCotent,msgTitle,target,terminal,createTime,msgType,msgUrl)VALUES(#msgFrom#,#msgCotent#,#msgTitle#,#target#,#terminal#,#createTime#,#msgType#,#msgUrl#)
+    	    <selectKey resultClass="int" keyProperty="id">  
+	            select LAST_INSERT_ID()
+			</selectKey>
+    	</insert>
+
+		<select id="queryPushMsg" parameterClass="cn.seocoo.platform.model.PushMsg" resultClass="cn.seocoo.platform.model.PushMsg">
+			SELECT * from tb_seocoo_pushMsg 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="msgFrom"> 
+					 	msgFrom = #msgFrom#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="msgCotent"> 
+					 	msgCotent = #msgCotent#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="msgTitle"> 
+					 	msgTitle = #msgTitle#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="target"> 
+					 	target = #target#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="terminal"> 
+					 	terminal = #terminal#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="msgType"> 
+					 	msgType = #msgType#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updatePushMsg" parameterClass="cn.seocoo.platform.model.PushMsg" >
+			update tb_seocoo_pushMsg 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="msgFrom"> 
+					 	msgFrom = #msgFrom#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="msgCotent"> 
+					 	msgCotent = #msgCotent#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="msgTitle"> 
+					 	msgTitle = #msgTitle#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="target"> 
+					 	target = #target#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="terminal"> 
+					 	terminal = #terminal#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="msgType"> 
+					 	msgType = #msgType#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deletePushMsg" parameterClass="cn.seocoo.platform.model.PushMsg" >
+			DELETE FROM tb_seocoo_pushMsg where id=#id#
+		</delete>
+
+		<select id="queryPushMsgPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.PushMsg">
+			SELECT * from tb_seocoo_pushMsg 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="msgFrom"> 
+					 	msgFrom = #msgFrom#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="msgCotent"> 
+					 	msgCotent = #msgCotent#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="msgTitle"> 
+					 	msgTitle = #msgTitle#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="target"> 
+					 	target = #target#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="terminal"> 
+					 	terminal = #terminal#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="msgType"> 
+					 	msgType = #msgType#
+					</isNotEmpty> 
+				</dynamic> 
+				 ORDER BY  createTime DESC
+			     limit #beginRow# , #pageSize#   
+		</select>
+
+		<select id="queryPushMsgPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_pushMsg 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="msgFrom"> 
+					 	msgFrom = #msgFrom#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="msgCotent"> 
+					 	msgCotent = #msgCotent#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="msgTitle"> 
+					 	msgTitle = #msgTitle#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="target"> 
+					 	target = #target#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="terminal"> 
+					 	terminal = #terminal#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="msgType"> 
+					 	msgType = #msgType#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

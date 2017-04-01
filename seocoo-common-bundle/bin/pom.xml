@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0 </modelVersion>
+	<parent>
+		<groupId>co.jiajian</groupId>
+		<artifactId>platform</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>jiajian-common-bundle</artifactId>
+	<name>jiajian-common-bundle</name>
+	<packaging>jar</packaging>
+	
+	<dependencies>
+		<dependency>
+	        <groupId>com.tydic.framework</groupId>
+			<artifactId>framework-util</artifactId>
+		</dependency>
+				<dependency>
+			<groupId>co.jiajian</groupId>
+			<artifactId>jiajian-model-bundle</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wss</groupId>
+			<artifactId>wss-security</artifactId>
+		</dependency>
+		<dependency><!--json操作-->
+		  <groupId>com.alibaba</groupId>
+		  <artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+		</dependency>
+		
+		<!-- shiro   start -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		
+			<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-jta</artifactId>
+			<version>3.8.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-jdbc</artifactId>
+			<version>3.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-hibernate3</artifactId>
+			<version>3.8.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>hibernate</artifactId>
+					<groupId>org.hibernate</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+	</dependencies>
+	
+	<build>
+		<finalName>jiajian-common-bundle</finalName>
+	</build>
+
+</project>

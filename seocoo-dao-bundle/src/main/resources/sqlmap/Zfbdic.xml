@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Zfbdic">
+
+	   	<insert id="saveZfbdic" parameterClass="cn.seocoo.platform.model.Zfbdic">
+        	insert into tb_seocoo_zfbdic(firstCategory,secondCategory,thirdCategory,certificationType,categoryId)VALUES(#firstCategory#,#secondCategory#,#thirdCategory#,#certificationType#,#categoryId#)
+    	</insert>
+
+		<select id="queryZfbdic" parameterClass="cn.seocoo.platform.model.Zfbdic" resultClass="cn.seocoo.platform.model.Zfbdic">
+			SELECT * from tb_seocoo_zfbdic 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="firstCategory"> 
+					 	firstCategory = #firstCategory#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="secondCategory"> 
+					 	secondCategory = #secondCategory#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="thirdCategory"> 
+					 	thirdCategory = #thirdCategory#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="certificationType"> 
+					 	certificationType = #certificationType#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="categoryId"> 
+					 	categoryId = #categoryId#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateZfbdic" parameterClass="cn.seocoo.platform.model.Zfbdic" >
+			update tb_seocoo_zfbdic 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="firstCategory"> 
+					 	firstCategory = #firstCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="secondCategory"> 
+					 	secondCategory = #secondCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="thirdCategory"> 
+					 	thirdCategory = #thirdCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="certificationType"> 
+					 	certificationType = #certificationType#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="categoryId"> 
+					 	categoryId = #categoryId#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteZfbdic" parameterClass="cn.seocoo.platform.model.Zfbdic" >
+			DELETE FROM tb_seocoo_zfbdic where id=#id#
+		</delete>
+
+		<select id="queryZfbdicPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Zfbdic">
+			SELECT * from tb_seocoo_zfbdic 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="firstCategory"> 
+					 	firstCategory = #firstCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="secondCategory"> 
+					 	secondCategory = #secondCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="thirdCategory"> 
+					 	thirdCategory = #thirdCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="certificationType"> 
+					 	certificationType = #certificationType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="categoryId"> 
+					 	categoryId = #categoryId#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryZfbdicPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_zfbdic 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="firstCategory"> 
+					 	firstCategory = #firstCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="secondCategory"> 
+					 	secondCategory = #secondCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="thirdCategory"> 
+					 	thirdCategory = #thirdCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="certificationType"> 
+					 	certificationType = #certificationType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="categoryId"> 
+					 	categoryId = #categoryId#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

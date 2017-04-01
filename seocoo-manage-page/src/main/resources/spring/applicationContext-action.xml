@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+			 default-autowire="byName" default-lazy-init="true">
+			
+			<bean id="demoAction" class="cn.seocoo.platform.manage.demo.DemoAction" scope="prototype" />
+			<bean id="indexAction" class="cn.seocoo.platform.home.IndexAction" scope="prototype" />
+			<bean id="merchantAction" class="cn.seocoo.platform.manage.merchant.MerchantAction" scope="prototype" />
+			<bean id="uploadAction" class="cn.seocoo.platform.upload.UploadAction" scope="prototype" />
+			<bean id="groupAction" class="cn.seocoo.platform.group.GroupAction" scope="prototype" />
+			
+			<bean id="auditAction" class="cn.seocoo.platform.admin.AuditAction" scope="prototype" />
+			<bean id="paySettingAction" class="cn.seocoo.platform.admin.PaySettingAction" scope="prototype" />
+			<bean id="payRateAction" class="cn.seocoo.platform.admin.PayRateAction" scope="prototype" />
+			<bean id="transaDetailAction" class="cn.seocoo.platform.transaDetail.TransaDetailAction" scope="prototype" />
+			<bean id="withdrawCashAction" class="cn.seocoo.platform.admin.WithdrawCashAction" scope="prototype" />
+			<bean id="adviceImageAction" class="cn.seocoo.platform.admin.AdviceImageAction" scope="prototype" />
+
+			<bean id="userUpgradeManageAction" class="cn.seocoo.platform.admin.UserUpgradeManageAction" scope="prototype" />
+			<bean id="codeToPayAction" class="cn.seocoo.platform.wap.CodeToPayAction" scope="prototype" />
+
+			<bean id="merchantRegisterAction" class="cn.seocoo.platform.wap.MerchantRegisterAction" scope="prototype" />
+			<bean id="wapAction" class="cn.seocoo.platform.wap.WapAction" scope="prototype" />
+			<bean id="groupMerAction" class="cn.seocoo.platform.groupMer.GroupMerAction" scope="prototype" />
+			
+</beans>

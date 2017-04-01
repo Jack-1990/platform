@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Validatecode">
+
+	   	<insert id="saveValidatecode" parameterClass="cn.seocoo.platform.model.Validatecode">
+        	insert into tb_seocoo_validatecode(phone,validateCode,generateTime)VALUES(#phone#,#validateCode#,#generateTime#)
+    	</insert>
+
+		<select id="queryValidatecode" parameterClass="cn.seocoo.platform.model.Validatecode" resultClass="cn.seocoo.platform.model.Validatecode">
+			SELECT * from tb_seocoo_validatecode 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="phone"> 
+					 	phone = #phone#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="validateCode"> 
+					 	validateCode = #validateCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="generateTime"> 
+					 	generateTime = #generateTime#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateValidatecode" parameterClass="cn.seocoo.platform.model.Validatecode" >
+			update tb_seocoo_validatecode 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="validateCode"> 
+					 	validateCode = #validateCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="generateTime"> 
+					 	generateTime = #generateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where phone = #phone#
+		</update>
+
+		<delete id="deleteValidatecode" parameterClass="cn.seocoo.platform.model.Validatecode" >
+			DELETE FROM tb_seocoo_validatecode where id=#id#
+		</delete>
+
+		<select id="queryValidatecodePage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Validatecode">
+			SELECT * from tb_seocoo_validatecode 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="phone"> 
+					 	phone = #phone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="validateCode"> 
+					 	validateCode = #validateCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="generateTime"> 
+					 	generateTime = #generateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryValidatecodePageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_validatecode 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="phone"> 
+					 	phone = #phone#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="validateCode"> 
+					 	validateCode = #validateCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="generateTime"> 
+					 	generateTime = #generateTime#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

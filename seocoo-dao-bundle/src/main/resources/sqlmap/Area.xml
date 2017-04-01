@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Area">
+
+	   	<insert id="saveArea" parameterClass="cn.seocoo.platform.model.Area">
+        	insert into tb_sys_area(code,name,pcode,mergerName,province,city,create_time,district,last_update_time,operator,operator_ip,level)VALUES(#code#,#name#,#pcode#,#mergerName#,#province#,#city#,#create_time#,#district#,#last_update_time#,#operator#,#operator_ip#,#level#)
+    	</insert>
+
+		<select id="queryArea" parameterClass="cn.seocoo.platform.model.Area" resultClass="cn.seocoo.platform.model.Area">
+			SELECT * from tb_sys_area 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="name"> 
+					 	name = #name#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="pcode"> 
+					 	pcode = #pcode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="mergerName"> 
+					 	mergerName = #mergerName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="province"> 
+					 	province = #province#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="city"> 
+					 	city = #city#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="create_time"> 
+					 	create_time = #create_time#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="district"> 
+					 	district = #district#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="last_update_time"> 
+					 	last_update_time = #last_update_time#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="operator"> 
+					 	operator = #operator#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="operator_ip"> 
+					 	operator_ip = #operator_ip#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="level"> 
+					 	level = #level#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		<select id="queryAreaByPcode" parameterClass="cn.seocoo.platform.model.Area" resultClass="cn.seocoo.platform.model.Area">
+			SELECT * from tb_sys_area 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="pcode"> 
+					 	pcode = #pcode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="level"> 
+					 	level = #level#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+
+		<update id="updateArea" parameterClass="cn.seocoo.platform.model.Area" >
+			update tb_sys_area 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="code"> 
+					 	code = #code#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="name"> 
+					 	name = #name#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="pcode"> 
+					 	pcode = #pcode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="mergerName"> 
+					 	mergerName = #mergerName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="province"> 
+					 	province = #province#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="city"> 
+					 	city = #city#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="create_time"> 
+					 	create_time = #create_time#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="district"> 
+					 	district = #district#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="last_update_time"> 
+					 	last_update_time = #last_update_time#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="operator"> 
+					 	operator = #operator#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="operator_ip"> 
+					 	operator_ip = #operator_ip#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="level"> 
+					 	level = #level#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteArea" parameterClass="cn.seocoo.platform.model.Area" >
+			DELETE FROM tb_sys_area where id=#id#
+		</delete>
+
+		<select id="queryAreaPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Area">
+			SELECT * from tb_sys_area 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="name"> 
+					 	name = #name#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="pcode"> 
+					 	pcode = #pcode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="mergerName"> 
+					 	mergerName = #mergerName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="province"> 
+					 	province = #province#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="city"> 
+					 	city = #city#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="create_time"> 
+					 	create_time = #create_time#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="district"> 
+					 	district = #district#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="last_update_time"> 
+					 	last_update_time = #last_update_time#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operator"> 
+					 	operator = #operator#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operator_ip"> 
+					 	operator_ip = #operator_ip#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="level"> 
+					 	level = #level#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryAreaPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_sys_area 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="name"> 
+					 	name = #name#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="pcode"> 
+					 	pcode = #pcode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="mergerName"> 
+					 	mergerName = #mergerName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="province"> 
+					 	province = #province#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="city"> 
+					 	city = #city#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="create_time"> 
+					 	create_time = #create_time#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="district"> 
+					 	district = #district#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="last_update_time"> 
+					 	last_update_time = #last_update_time#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operator"> 
+					 	operator = #operator#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operator_ip"> 
+					 	operator_ip = #operator_ip#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="level"> 
+					 	level = #level#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		
+		<select id="queryMergerName" parameterClass="cn.seocoo.platform.model.Area" resultClass="cn.seocoo.platform.model.Area">
+			SELECT code,mergerName FROM  tb_sys_area  
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="pcode"> 
+					 	pcode = #pcode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="level"> 
+					 	level = #level#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="code"> 
+					 	code in ($code$)
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		
+	   <select id="queryAreaInfoList" parameterClass="cn.seocoo.platform.model.Area" resultClass="cn.seocoo.platform.model.AreaInfo">
+			SELECT * from tb_sys_area 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="name"> 
+					 	name = #name#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="pcode"> 
+					 	pcode = #pcode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="mergerName"> 
+					 	mergerName = #mergerName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="province"> 
+					 	province = #province#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="city"> 
+					 	city = #city#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="create_time"> 
+					 	create_time = #create_time#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="district"> 
+					 	district = #district#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="last_update_time"> 
+					 	last_update_time = #last_update_time#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="operator"> 
+					 	operator = #operator#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="operator_ip"> 
+					 	operator_ip = #operator_ip#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="level"> 
+					 	level = #level#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

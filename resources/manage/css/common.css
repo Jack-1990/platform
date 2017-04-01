@@ -1,0 +1,593 @@
+@charset "utf-8";
+/* reset 部分样式重置 strat ===================================== */
+/* 清除内外边距 ---------- */
+
+address, cite, dfn, em, i  /* 将斜体扶正 */
+{
+	font-style: normal;
+}
+code, kbd, pre, samp, tt /* 统一等宽字体 */
+{
+	font-family: "Courier New", Courier, monospace;
+}
+small /* 小于 12px 的中文很难阅读，让 small 正常化 */
+{
+	font-size: 12px;
+}
+/* 重置列表元素 --------- */
+ul, ol
+{
+	list-style: none;
+}
+/* 重置文本格式元素 ----- */
+a, a:hover
+{
+	text-decoration: none;
+}
+a:focus
+{
+	outline: none;
+}
+abbr[title], acronym[title]  /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+{
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+q:before, q:after
+{
+	content: '';
+}
+/* 重置表单元素 ------- */
+legend /* 针对 ie6 */
+{
+	color: #000;
+}
+fieldset, img /* img 搭车：让链接里的 img 无边框 */
+{
+	border: none;
+}
+/* 重置表格元素 ------ */
+table
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+	text-align: center;
+}
+/* 重置 hr --------- */
+hr
+{
+	border: none;
+	height: 1px;
+}
+.pointer
+{
+	cursor: pointer;
+}
+/* 去a虚线框 cdl clear dotted line */
+
+.cdl, a:active
+{
+	outline: none;
+}
+focus
+{
+	outline: none;
+}
+/* 浮动 */
+.fl
+{
+	float: left;
+}
+.fr
+{
+	float: right;
+}
+/* 清除浮动1  */
+.clear
+{
+	clear: both;
+}
+/* 清除浮动2 */
+.clearfix:after
+{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+/* 文本对齐 */
+.textl
+{
+	text-align: left;
+}
+.textr
+{
+	text-align: right;
+}
+.textc
+{
+	text-align: center;
+}
+.bold
+{
+	font-weight: 800;
+}
+.overflow
+{
+	overflow: hidden;
+}
+.fn
+{
+	font-style: normal;
+	font-weight: normal;
+}
+.nowrap
+{
+	white-space: nowrap;
+}
+.indent
+{
+	text-indent: 2em;
+}
+.no-indent
+{
+	text-indent:0 !important;
+}
+.ellipsis
+{
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+img{
+	vertical-align:middle;
+}
+/* 显示和定位 */
+.disb
+{
+	display: block;
+}
+.hide
+{
+	display: none;
+}
+.inlineBlock
+{
+	display: inline-block;
+}
+.absolute
+{
+	position: absolute
+}
+.relative
+{
+	position: relative;
+}
+/* 外补丁  */
+.nomp
+{
+	margin: 0px;
+	padding: 0px;
+}
+.nomar
+{
+	margin: 0px !important;
+}
+.mar10
+{
+	margin: 10px;
+}
+.mt10
+{
+	margin-top: 10px;
+}
+.mb10
+{
+	margin-bottom: 10px;
+}
+.ml10
+{
+	margin-left: 10px;
+}
+.mr10
+{
+	margin-right: 10px;
+}
+.mar20
+{
+	margin:20px;
+}
+.mt20
+{
+	margin-top: 20px;
+}
+.mt30
+{
+	margin-top: 30px;
+}
+.mt40
+{
+	margin-top:40px;
+}
+.mt60
+{
+	margin-top:60px;
+}
+.mb20
+{
+	margin-bottom: 20px;
+}
+.ml20
+{
+	margin-left: 20px;
+}
+.ml60
+{
+	margin-left:60px;
+}
+.mr20
+{
+	margin-right: 20px;
+}
+.mr30
+{
+	margin-right:30px;
+}
+.mr40
+{
+	margin-right:40px;
+}
+.m0a
+{
+	margin: 0 auto;
+}
+.mlr15{
+	margin:0 15px;
+}
+.mlr{
+	margin:0 20px;
+}
+/* 内边距  */
+.nopad
+{
+	padding: 0px;
+}
+.pad10
+{
+	padding: 10px 20px;
+}
+.padd10
+{
+	padding: 10px;
+}
+.pl10
+{
+	padding-left: 10px;
+}
+.pr10
+{
+	padding-right: 10px;
+}
+.pb10
+{
+	padding-bottom: 10px;
+}
+.pt10
+{
+	padding-top: 10px;
+}
+.pad20
+{
+	padding: 20px;
+}
+.pad35
+{
+	padding: 35px;
+}
+.pl20
+{
+	padding-left: 20px;
+}
+.pr20
+{
+	padding-right: 20px;
+}
+.pr40
+{
+	padding-right: 40px;
+}
+.pb20
+{
+	padding-bottom: 20px;
+}
+.pt20
+{
+	padding-top: 20px;
+}
+.pt30
+{
+	padding-top:30px;
+}
+.ptl{
+	padding:10px 0 10px 10px;
+}
+/* 字体 */
+font
+{
+	font: 12px normal;
+}
+.nofont
+{
+	font-size: 0px;
+}
+.font12
+{
+	font-size: 12px;
+}
+.font14
+{
+	font-size: 14px;
+}
+.font16
+{
+	font-size: 16px;
+}
+.font18
+{
+	font-size: 18px;
+}
+.lh24
+{
+	line-height: 24px;
+}
+.lh18
+{
+	line-height: 18px;
+}
+/* css3.0 圆角和阴影 */
+.radius
+{
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.shadow
+{
+	-moz-box-shadow: rgba(0,0,0,0.3) 0 4px 4px;
+	-webkit-box-shadow: rgba(0,0,0,0.3) 0 4px 4px;
+	-khtml-box-shadow: rgba(0,0,0,0.3) 0 4px 4px;
+	box-shadow: rgba(0,0,0,0.3) 0 4px 4px;
+}
+/* 隐藏文字 */
+.offScreen
+{
+	left: -9999px;
+	position: absolute;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */
+ color: #ccc;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+ color:#ccc;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+ color:#ccc;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+ color:#ccc;
+}
+textarea::-webkit-input-placeholder { /* WebKit browsers */
+ color: #ccc;
+}
+textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+ color:#ccc;
+}
+textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+ color:#ccc;
+}
+textarea:-ms-textarea-placeholder { /* Internet Explorer 10+ */
+ color:#ccc;
+}
+
+/* reset 部分样式重置 end ======================================= */
+
+/*container*/
+html,
+body {
+	margin:0;
+    padding:0;
+    box-sizing:content-box;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+    background-color:none;
+    background-image: none;
+    color:#fff;
+}
+/* 滚动条样式  */
+
+input, textarea, keygen, select, button, isindex
+{
+	font: -webkit-small-control;
+	color: initial;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+}
+.app>h1{
+    padding: 20px 0;
+    width: 96%;
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    color: #7c7c7c;
+}
+.app>p {
+    color: #7c7c7c;
+    padding: 25px;
+}
+
+.app .add_advert {
+    overflow: hidden;
+    padding-top: 20px;
+	float:left;
+}
+
+.app .add_advert .edit_advert {
+    width: 230px;
+    height: 520px;
+    background: url(../images/phone_bg.png) no-repeat;
+    background-size: contain;
+    position: relative;
+}
+
+.app .add_advert .edit_advert .add_pic {
+    display: block;
+    width: 201px;
+    height: 100px;
+    position: absolute;
+    bottom: 110px;
+    left: 15px;
+    background: #fff;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.app .add_advert .edit_advert .add_pic img {
+    display: block;
+    width: 199px;
+    height: 130px;
+}
+
+.app .add_advert .edit_advert .add_pic li {
+    width: 199px;
+    height: 100px;
+    background: #E7E7E7;
+    border: 1px solid #C9C9C9;
+    position: relative;
+}
+
+.app .add_advert .edit_advert .add_pic li span {
+    display: block;
+    margin-top: 35px;
+    color: #535353;
+    font-size: 16px;
+    text-align: center;
+}
+
+.choose_advert {
+    overflow: hidden;
+    width: 500px;
+    height: 290px;
+    margin-top: 40px;
+    padding-left: 70px;
+    padding-top: 80px;
+    font-size: 15px;
+}
+
+.choose_advert p.setting {
+    margin-top: 60px;
+}
+
+.choose_advert p.setting a {
+    background: #19B99B;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.choose_advert p.setting a.cancel {
+    background: #A0A0A0;
+    margin-left: 10px;
+}
+
+.choose_advert p.note {
+    line-height: 2em;
+    font-size: 14px;
+    color: #535353;
+    width: 400px;
+    margin-top: 40px;
+}
+
+.choose_advert select {
+    width: 160px;
+    height: 25px;
+    border: 1px solid #1E90FF;
+}
+
+.add_advert .switch {
+    height: 25px;
+    line-height: 25px;
+    width: 120px;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    font-size: 13px;
+}
+
+.add_advert .switch span {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 17px;
+}
+
+.add_advert .switch label {
+    height: 25px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    z-index: 99;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 25px;
+    background-color: #43D0A9;
+    border: 2px solid #43D0A9;
+}
+
+.add_advert .switch label.checkbox {
+    background-color: #FEFEFE;
+    border: 2px solid #ccc;
+}
+
+.add_advert .switch>a {
+    display: block;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    outline: 0;
+    position: absolute;
+    top: 1px;
+    left: 27px;
+    z-index: 101;
+    -webkit-appearance: none;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+    *zoom: 1;
+    filter: progid: DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEFEFEF', endColorstr='#FFBCB9B8');
+    background-image: -moz-linear-gradient(top, #efefef 32%, #bcb9b8 100%);
+    background-image: -webkit-linear-gradient(top, #efefef 32%, #bcb9b8 100%);
+    background-image: linear-gradient(to bottom, #efefef 32%, #bcb9b8 100%);
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.add_advert .switch>a.control {
+    left: 0;
+}

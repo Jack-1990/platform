@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserImage">
+
+	   	<insert id="saveUserImage" parameterClass="cn.seocoo.platform.model.UserImage">
+        	insert into tb_seocoo_user_image(iD_before_pic,iD_after_pic,bank_before_pic,bank_after_pic,auditStatus,merchantCode,createTime,createUser)
+        	VALUES(#iD_before_pic#,#iD_after_pic#,#bank_before_pic#,#bank_after_pic#,#auditStatus#,#merchantCode#,#createTime#,#createUser#)
+    	</insert>
+
+		<select id="queryUserImage" parameterClass="cn.seocoo.platform.model.UserImage" resultClass="cn.seocoo.platform.model.UserImage">
+			SELECT * from tb_seocoo_user_image 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="iD_before_pic"> 
+					 	iD_before_pic = #iD_before_pic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="iD_after_pic"> 
+					 	iD_after_pic = #iD_after_pic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bank_before_pic"> 
+					 	bank_before_pic = #bank_before_pic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bank_after_pic"> 
+					 	bank_after_pic = #bank_after_pic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateUserImage" parameterClass="cn.seocoo.platform.model.UserImage" >
+			update tb_seocoo_user_image 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="iD_before_pic"> 
+					 	iD_before_pic = #iD_before_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="iD_after_pic"> 
+					 	iD_after_pic = #iD_after_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bank_before_pic"> 
+					 	bank_before_pic = #bank_before_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bank_after_pic"> 
+					 	bank_after_pic = #bank_after_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteUserImage" parameterClass="cn.seocoo.platform.model.UserImage" >
+			DELETE FROM tb_seocoo_user_image where id=#id#
+		</delete>
+
+		<select id="queryUserImagePage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.UserImage">
+			SELECT * from tb_seocoo_user_image 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="iD_before_pic"> 
+					 	iD_before_pic = #iD_before_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="iD_after_pic"> 
+					 	iD_after_pic = #iD_after_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bank_before_pic"> 
+					 	bank_before_pic = #bank_before_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bank_after_pic"> 
+					 	bank_after_pic = #bank_after_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryUserImagePageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_user_image 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="iD_before_pic"> 
+					 	iD_before_pic = #iD_before_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="iD_after_pic"> 
+					 	iD_after_pic = #iD_after_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bank_before_pic"> 
+					 	bank_before_pic = #bank_before_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bank_after_pic"> 
+					 	bank_after_pic = #bank_after_pic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

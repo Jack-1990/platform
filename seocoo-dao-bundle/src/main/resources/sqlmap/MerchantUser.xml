@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="MerchantUser">
+
+	   	<insert id="saveMerchantUser" parameterClass="cn.seocoo.platform.model.MerchantUser">
+        	insert into tb_seocoo_merchantUser(loginName,nickName,parentUser,merchantCode,createTime,updateTime,headPic,terminal,deviceToken)VALUES(#loginName#,#nickName#,#parentUser#,#merchantCode#,#createTime#,#updateTime#,#headPic#,#terminal#,#deviceToken#)
+    	</insert>
+
+		<select id="queryMerchantUser" parameterClass="cn.seocoo.platform.model.MerchantUser" resultClass="cn.seocoo.platform.model.MerchantUser">
+			SELECT * from tb_seocoo_merchantUser 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="nickName"> 
+					 	nickName = #nickName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="parentUser"> 
+					 	parentUser = #parentUser#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="headPic"> 
+					 	headPic = #headPic#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="terminal"> 
+					 	terminal = #terminal#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="deviceToken"> 
+					 	deviceToken = #deviceToken#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateMerchantUser" parameterClass="cn.seocoo.platform.model.MerchantUser" >
+			update tb_seocoo_merchantUser 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="loginName"> 
+					 	loginName = #loginName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="nickName"> 
+					 	nickName = #nickName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="parentUser"> 
+					 	parentUser = #parentUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="headPic"> 
+					 	headPic = #headPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="terminal"> 
+					 	terminal = #terminal#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="deviceToken"> 
+					 	deviceToken = #deviceToken#
+					</isNotEmpty> 
+				</dynamic> 
+			where merchantCode = #merchantCode#
+		</update>
+
+		<delete id="deleteMerchantUser" parameterClass="cn.seocoo.platform.model.MerchantUser" >
+			DELETE FROM tb_seocoo_merchantUser where merchantCode = #merchantCode#
+		</delete>
+
+		<select id="queryMerchantUserPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.MerchantUser">
+			SELECT * from tb_seocoo_merchantUser 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="nickName"> 
+					 	nickName = #nickName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="parentUser"> 
+					 	parentUser = #parentUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="headPic"> 
+					 	headPic = #headPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="terminal"> 
+					 	terminal = #terminal#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="deviceToken"> 
+					 	deviceToken = #deviceToken#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryMerchantUserPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_merchantUser 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="nickName"> 
+					 	nickName = #nickName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="parentUser"> 
+					 	parentUser = #parentUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="headPic"> 
+					 	headPic = #headPic#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="terminal"> 
+					 	terminal = #terminal#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="deviceToken"> 
+					 	deviceToken = #deviceToken#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		
+		
+		<select id="queryProfitMerchantUsers" parameterClass="cn.seocoo.platform.model.MerchantUser" resultClass="cn.seocoo.platform.model.MerchantUser">
+			  SELECT T2.*
+				FROM ( 
+				    SELECT 
+				        @r AS _id, 
+				        (SELECT @r := parentUser FROM tb_seocoo_merchantUser WHERE loginName = _id) AS parent_id, 
+				        @l := @l + 1 AS lvl 
+				    FROM 
+				        (SELECT @r := #loginName#, @l := 0) vars, tb_seocoo_merchantUser h 
+				    WHERE @r != 0) T1 
+				JOIN tb_seocoo_merchantUser T2 
+				ON T1._id = T2.loginName 
+				ORDER BY T1.lvl asc limit 4
+		</select>
+		
+		
+	   <update id="updateDeviceToken" parameterClass="cn.seocoo.platform.model.MerchantUser" >
+			update tb_seocoo_merchantUser 
+			set deviceToken ='',terminal =''  
+			where deviceToken = #deviceToken#
+		</update>
+		
+		 <update id="updateTokenByLoginName" parameterClass="cn.seocoo.platform.model.MerchantUser" >
+			update tb_seocoo_merchantUser 
+			set deviceToken ='',terminal =''  
+			where loginName = #loginName#
+		</update>
+</sqlMap>

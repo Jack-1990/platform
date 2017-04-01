@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		lazyLoadingEnabled="true" useStatementNamespaces="true"
+		statementCachingEnabled="true" classInfoCacheEnabled="true" />
+
+	<sqlMap resource="sqlmap/demo.xml" />
+	<sqlMap resource="sqlmap/systemConfig.xml" />
+	
+	
+	<sqlMap resource="sqlmap/CreateMerchantLog.xml" />
+	<sqlMap resource="sqlmap/Group.xml" />
+	<sqlMap resource="sqlmap/Merchant.xml" />
+	<sqlMap resource="sqlmap/Order.xml" />
+	<sqlMap resource="sqlmap/PayChannel.xml" />
+	<sqlMap resource="sqlmap/UserRelationship.xml" />
+	<sqlMap resource="sqlmap/Qqdic.xml" />
+	<sqlMap resource="sqlmap/Wxdic.xml" />
+	<sqlMap resource="sqlmap/Zfbdic.xml" />
+	<sqlMap resource="sqlmap/Area.xml" />
+	
+	<sqlMap resource="sqlmap/MerchantSnRef.xml" />
+	<sqlMap resource="sqlmap/Printer.xml" />
+	<sqlMap resource="sqlmap/PrintFalse.xml" />
+	<sqlMap resource="sqlmap/PrintRecord.xml" />
+	<sqlMap resource="sqlmap/MerchantNetSn.xml" />
+	
+	<sqlMap resource="sqlmap/RateDim.xml" />
+	<sqlMap resource="sqlmap/RateDimAttr.xml" />
+	<sqlMap resource="sqlmap/RateSku.xml" />
+	<sqlMap resource="sqlmap/DimDic.xml" />
+	<sqlMap resource="sqlmap/DimDicInfo.xml" />
+	
+	<sqlMap resource="sqlmap/MerchantRate.xml" />
+	<sqlMap resource="sqlmap/MerchantRateLog.xml" />
+	<sqlMap resource="sqlmap/UserLevel.xml" />
+	<sqlMap resource="sqlmap/MerchantUser.xml" />
+	<sqlMap resource="sqlmap/PaymentProfit.xml" />
+	
+	<sqlMap resource="sqlmap/AdviceImage.xml" />
+	
+	<sqlMap resource="sqlmap/UserBank.xml" />
+	<sqlMap resource="sqlmap/UserImage.xml" />
+
+	<sqlMap resource="sqlmap/WithdrawCash.xml" />
+
+    <sqlMap resource="sqlmap/Bank.xml" />
+	<sqlMap resource="sqlmap/BankInfo.xml" />
+	<sqlMap resource="sqlmap/Upgrade.xml" />
+	
+	<sqlMap resource="sqlmap/Validatecode.xml" />
+	<sqlMap resource="sqlmap/MerchantInfo.xml" />
+	<sqlMap resource="sqlmap/UserIdinfo.xml" />
+	
+	<sqlMap resource="sqlmap/UserUpgrade.xml" />
+	
+	<sqlMap resource="sqlmap/WapPage.xml" />
+	<sqlMap resource="sqlmap/PushMsg.xml" />
+	
+	<sqlMap resource="sqlmap/UserUpgradeOrder.xml" />
+	<sqlMap resource="sqlmap/AllLevelRate.xml" />
+	<sqlMap resource="sqlmap/MerchantProfitLog.xml" />
+	
+	<sqlMap resource="sqlmap/GroupMerchantPay.xml" />
+</sqlMapConfig>
+

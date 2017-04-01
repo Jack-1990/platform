@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="WithdrawCash">
+
+	<insert id="saveWithdrawCash" parameterClass="cn.seocoo.platform.model.WithdrawCash">
+        	insert into tb_seocoo_withdrawCash(merchantCode,loginName,withdrawAmount,withdrawStatus,applyTime,opreator,finishTime,merchantName,bankName,cardNumber)VALUES(#merchantCode#,#loginName#,#withdrawAmount#,#withdrawStatus#,#applyTime#,#opreator#,#finishTime#,#merchantName#,#bankName#,#cardNumber#)
+	</insert>
+
+	<select id="queryWithdrawCash" parameterClass="cn.seocoo.platform.model.WithdrawCash" resultClass="cn.seocoo.platform.model.WithdrawCash">
+			SELECT * from tb_seocoo_withdrawCash 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="withdrawAmount"> 
+					 	withdrawAmount = #withdrawAmount#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="withdrawStatus"> 
+					 	withdrawStatus = #withdrawStatus#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="applyTime"> 
+					 	applyTime = #applyTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="opreator"> 
+					 	opreator = #opreator#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="finishTime"> 
+					 	finishTime = #finishTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantName"> 
+					 	merchantName = #merchantName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="cardNumber"> 
+					 	cardNumber = #cardNumber#
+			</isNotEmpty> 
+		</dynamic> 
+	</select>
+
+	<update id="updateWithdrawCash" parameterClass="cn.seocoo.platform.model.WithdrawCash" >
+			update tb_seocoo_withdrawCash 
+		<dynamic prepend="set"> 
+			<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="loginName">
+					 	loginName = #loginName#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="withdrawAmount"> 
+					 	withdrawAmount = #withdrawAmount#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="withdrawStatus"> 
+					 	withdrawStatus = #withdrawStatus#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="applyTime"> 
+					 	applyTime = #applyTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="opreator"> 
+					 	opreator = #opreator#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="finishTime"> 
+					 	finishTime = #finishTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="merchantName"> 
+					 	merchantName = #merchantName#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="bankName"> 
+					 	bankName = #bankName#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="cardNumber"> 
+					 	cardNumber = #cardNumber#
+			</isNotEmpty> 
+		</dynamic> 
+			where id=#id# 
+	</update>
+
+	<delete id="deleteWithdrawCash" parameterClass="cn.seocoo.platform.model.WithdrawCash" >
+			DELETE FROM tb_seocoo_withdrawCash where id=#id#
+	</delete>
+
+	<select id="queryWithdrawCashPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.WithdrawCash">
+			SELECT * from tb_seocoo_withdrawCash 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="loginName"> 
+						loginName like '%$loginName$%'
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="withdrawAmount"> 
+					 	withdrawAmount = #withdrawAmount#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="withdrawStatus"> 
+					 	withdrawStatus = #withdrawStatus#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="opreator"> 
+					 	opreator = #opreator#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="finishTime"> 
+					 	finishTime = #finishTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="merchantName"> 
+					 	merchantName = #merchantName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="cardNumber"> 
+					 	cardNumber = #cardNumber#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="startDate"> 
+					 	applyTime >= #startDate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="endDate"> 
+					   #endDate# >= applyTime
+			</isNotEmpty>
+		</dynamic> 
+				ORDER BY applyTime  DESC
+				limit #beginRow# , #pageSize#
+	</select>
+
+	<select id="queryWithdrawCashPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_withdrawCash 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="loginName"> 
+					 loginName like '%$loginName$%'
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="withdrawAmount"> 
+					 	withdrawAmount = #withdrawAmount#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="withdrawStatus"> 
+					 	withdrawStatus = #withdrawStatus#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="opreator"> 
+					 	opreator = #opreator#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="finishTime"> 
+					 	finishTime = #finishTime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="merchantName"> 
+					 	merchantName = #merchantName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="cardNumber"> 
+					 	cardNumber = #cardNumber#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="startDate"> 
+					 	applyTime >= #startDate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="endDate"> 
+					   #endDate# >= applyTime
+			</isNotEmpty>
+		</dynamic> 
+	</select>
+
+</sqlMap>

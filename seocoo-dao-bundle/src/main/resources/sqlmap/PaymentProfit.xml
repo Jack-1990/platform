@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="PaymentProfit">
+
+	   	<insert id="savePaymentProfit" parameterClass="cn.seocoo.platform.model.PaymentProfit">
+          insert into tb_seocoo_payment_profit(orderNumber,totalOrderPrice,profitAmount,userProfitPrice,profitUser,tradeRate,intoRate,nextUser,nextUserIntoRate,nextUserTradeRate,profitRate,profitStatus,merchantCode,loginName,createTime,updateTime)VALUES(#orderNumber#,#totalOrderPrice#,#profitAmount#,#userProfitPrice#,#profitUser#,#tradeRate#,#intoRate#,#nextUser#,#nextUserIntoRate#,#nextUserTradeRate#,#profitRate#,#profitStatus#,#merchantCode#,#loginName#,#createTime#,#updateTime#)
+         </insert>
+
+		<select id="queryPaymentProfit" parameterClass="cn.seocoo.platform.model.PaymentProfit" resultClass="cn.seocoo.platform.model.PaymentProfit">
+			SELECT * from tb_seocoo_payment_profit 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="totalOrderPrice"> 
+					 	totalOrderPrice = #totalOrderPrice#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="profitAmount"> 
+					 	profitAmount = #profitAmount#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="userProfitPrice"> 
+					 	userProfitPrice = #userProfitPrice#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="profitUser"> 
+					 	profitUser = #profitUser#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="nextUser"> 
+					 	nextUser = #nextUser#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="nextUserTradeRate"> 
+					 	nextUserTradeRate = #nextUserTradeRate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="profitRate"> 
+					 	profitRate = #profitRate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="profitStatus"> 
+					 	profitStatus = #profitStatus#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		<select id="queryDayProfits"  resultClass="cn.seocoo.platform.model.PaymentProfit">
+			SELECT sum(p.userProfitPrice) userProfitPrice, p.profitUser from tb_seocoo_payment_profit p where TO_DAYS(now()) - TO_DAYS(p.createTime) = 1 and p.profitStatus = 0 GROUP BY p.profitUser HAVING sum(p.userProfitPrice)>0
+		</select>
+
+		<update id="updatePaymentProfit" parameterClass="cn.seocoo.platform.model.PaymentProfit" >
+			update tb_seocoo_payment_profit 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="totalOrderPrice"> 
+					 	totalOrderPrice = #totalOrderPrice#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="profitAmount"> 
+					 	profitAmount = #profitAmount#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="userProfitPrice"> 
+					 	userProfitPrice = #userProfitPrice#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="profitUser"> 
+					 	profitUser = #profitUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="nextUser"> 
+					 	nextUser = #nextUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="nextUserTradeRate"> 
+					 	nextUserTradeRate = #nextUserTradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="profitRate"> 
+					 	profitRate = #profitRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="profitStatus"> 
+					 	profitStatus = #profitStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="loginName"> 
+					 	loginName = #loginName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+		
+		<update id="updateProfitByOrderNumber" parameterClass="cn.seocoo.platform.model.PaymentProfit" >
+			update tb_seocoo_payment_profit set profitStatus = #profitStatus#  where orderNumber = #orderNumber#
+		</update>
+
+		<delete id="deletePaymentProfit" parameterClass="cn.seocoo.platform.model.PaymentProfit" >
+			DELETE FROM tb_seocoo_payment_profit where id=#id#
+		</delete>
+
+		<select id="queryPaymentProfitPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.PaymentProfit">
+			SELECT * from tb_seocoo_payment_profit 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="totalOrderPrice"> 
+					 	totalOrderPrice = #totalOrderPrice#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="profitAmount"> 
+					 	profitAmount = #profitAmount#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="userProfitPrice"> 
+					 	userProfitPrice = #userProfitPrice#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="profitUser"> 
+					 	profitUser = #profitUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="nextUser"> 
+					 	nextUser = #nextUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="nextUserTradeRate"> 
+					 	nextUserTradeRate = #nextUserTradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="profitRate"> 
+					 	profitRate = #profitRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="profitStatus"> 
+					 	profitStatus = #profitStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryPaymentProfitPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_payment_profit 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="totalOrderPrice"> 
+					 	totalOrderPrice = #totalOrderPrice#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="profitAmount"> 
+					 	profitAmount = #profitAmount#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="userProfitPrice"> 
+					 	userProfitPrice = #userProfitPrice#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="profitUser"> 
+					 	profitUser = #profitUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="nextUser"> 
+					 	nextUser = #nextUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="nextUserTradeRate"> 
+					 	nextUserTradeRate = #nextUserTradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="profitRate"> 
+					 	profitRate = #profitRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="profitStatus"> 
+					 	profitStatus = #profitStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		<select id="queryTodayProfit" parameterClass="cn.seocoo.platform.model.PaymentProfit" resultClass="java.lang.Double">
+			select sum(userProfitPrice) from tb_seocoo_payment_profit where to_days(createTime) = to_days(now()) and profitUser = #profitUser# and profitStatus = 0
+		</select>
+		
+		<select id="queryYesterdayProfit" parameterClass="cn.seocoo.platform.model.PaymentProfit" resultClass="java.lang.Double">
+			select sum(userProfitPrice) from tb_seocoo_payment_profit where to_days(now())-to_days(createTime) = 1 and profitUser = #profitUser# and profitStatus = 0
+		</select>
+		
+		<select id="queryMonthProfit" parameterClass="cn.seocoo.platform.model.PaymentProfit" resultClass="java.lang.Double">
+			select sum(userProfitPrice) from tb_seocoo_payment_profit where date_format(createTime,'%Y-%m')=date_format(now(),'%Y-%m') and profitUser = #profitUser# and profitStatus = 0
+		</select>
+</sqlMap>

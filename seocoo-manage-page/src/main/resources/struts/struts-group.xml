@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="group" extends="default" namespace="/">
+		
+		<action name="group" method="group" class="groupAction">
+			<result name="group">/pages/group/group.jsp</result>
+			<result name="groupList">/pages/group/groupList.jsp</result>
+			<result name="groupAdd">/pages/group/groupAdd.jsp</result>
+			<result name="groupEdit">/pages/group/groupEdit.jsp</result>
+		</action>
+		
+	</package>
+</struts>

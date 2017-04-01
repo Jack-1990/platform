@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserBank">
+
+	   	<insert id="saveUserBank" parameterClass="cn.seocoo.platform.model.UserBank">
+        	insert into tb_seocoo_user_bank(createUser,cardNumber,affiliatedBank,bankArea,bankAreaCode,bankAddress,bankNumber,auditStatus,bankName,merchantCode,createTime,province,city)
+        	VALUES(#createUser#,#cardNumber#,#affiliatedBank#,#bankArea#,#bankAreaCode#,#bankAddress#,#bankNumber#,#auditStatus#,#bankName#,#merchantCode#,#createTime#,#province#,#city#)
+    	</insert>
+
+		<select id="queryUserBank" parameterClass="cn.seocoo.platform.model.UserBank" resultClass="cn.seocoo.platform.model.UserBank">
+			SELECT * from tb_seocoo_user_bank 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="cardNumber"> 
+					 	cardNumber = #cardNumber#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="affiliatedBank"> 
+					 	affiliatedBank = #affiliatedBank#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bankArea"> 
+					 	bankArea = #bankArea#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bankAreaCode"> 
+					 	bankAreaCode = #bankAreaCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bankAddress"> 
+					 	bankAddress = #bankAddress#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="bankNumber"> 
+					 	bankNumber = #bankNumber#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					 </isNotEmpty> 
+					  <isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateUserBank" parameterClass="cn.seocoo.platform.model.UserBank" >
+			update tb_seocoo_user_bank 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="cardNumber"> 
+					 	cardNumber = #cardNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="affiliatedBank"> 
+					 	affiliatedBank = #affiliatedBank#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bankArea"> 
+					 	bankArea = #bankArea#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bankAreaCode"> 
+					 	bankAreaCode = #bankAreaCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bankAddress"> 
+					 	bankAddress = #bankAddress#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bankNumber"> 
+					 	bankNumber = #bankNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" , " property="bankName"> 
+					 	bankName = #bankName#
+					 </isNotEmpty> 
+					<isNotEmpty prepend="," property="province"> 
+					 	province = #province#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" , " property="city"> 
+					 	city = #city#
+					 </isNotEmpty> 
+				</dynamic> 
+			where 	merchantCode = #merchantCode#
+		</update>
+
+		<delete id="deleteUserBank" parameterClass="cn.seocoo.platform.model.UserBank" >
+			DELETE FROM tb_seocoo_user_bank where id=#id#
+		</delete>
+
+		<select id="queryUserBankPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.UserBank">
+			SELECT * from tb_seocoo_user_bank 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="cardNumber"> 
+					 	cardNumber = #cardNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="affiliatedBank"> 
+					 	affiliatedBank = #affiliatedBank#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankArea"> 
+					 	bankArea = #bankArea#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankAreaCode"> 
+					 	bankAreaCode = #bankAreaCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankAddress"> 
+					 	bankAddress = #bankAddress#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankNumber"> 
+					 	bankNumber = #bankNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryUserBankPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_user_bank 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="cardNumber"> 
+					 	cardNumber = #cardNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="affiliatedBank"> 
+					 	affiliatedBank = #affiliatedBank#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankArea"> 
+					 	bankArea = #bankArea#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankAreaCode"> 
+					 	bankAreaCode = #bankAreaCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankAddress"> 
+					 	bankAddress = #bankAddress#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="bankNumber"> 
+					 	bankNumber = #bankNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					</isNotEmpty> 
+					  <isNotEmpty prepend=" and " property="bankName"> 
+					 	bankName = #bankName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		
+		<update id="updateUser" parameterClass="cn.seocoo.platform.model.UserBank" >
+			update tb_seocoo_user_bank 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="cardNumber"> 
+					 	cardNumber = #cardNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="affiliatedBank"> 
+					 	affiliatedBank = #affiliatedBank#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bankArea"> 
+					 	bankArea = #bankArea#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bankAreaCode"> 
+					 	bankAreaCode = #bankAreaCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bankAddress"> 
+					 	bankAddress = #bankAddress#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="bankNumber"> 
+					 	bankNumber = #bankNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" , " property="bankName"> 
+					 	bankName = #bankName#
+					 </isNotEmpty> 
+					<isNotEmpty prepend="," property="province"> 
+					 	province = #province#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" , " property="city"> 
+					 	city = #city#
+					 </isNotEmpty> 
+				</dynamic> 
+			where merchantCode = #merchantCode#
+		</update>
+
+</sqlMap>

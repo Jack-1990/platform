@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="CreateMerchantLog">
+
+	   	<insert id="saveCreateMerchantLog" parameterClass="cn.seocoo.platform.model.CreateMerchantLog">
+        	insert into tb_seocoo_createMerchant_log(service,txnSeq,platformId,operId,outMchntId,cmbcMchntId,respCode,errorMsg,message)VALUES(#service#,#txnSeq#,#platformId#,#operId#,#outMchntId#,#cmbcMchntId#,#respCode#,#errorMsg#,#message#)
+    	</insert>
+
+		<select id="queryCreateMerchantLog" parameterClass="cn.seocoo.platform.model.CreateMerchantLog" resultClass="cn.seocoo.platform.model.CreateMerchantLog">
+			SELECT * from tb_seocoo_createMerchant_log 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="service"> 
+					 	service = #service#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="operId"> 
+					 	operId = #operId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="outMchntId"> 
+					 	outMchntId = #outMchntId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="respCode"> 
+					 	respCode = #respCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="errorMsg"> 
+					 	errorMsg = #errorMsg#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="message"> 
+					 	message = #message#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateCreateMerchantLog" parameterClass="cn.seocoo.platform.model.CreateMerchantLog" >
+			update tb_seocoo_createMerchant_log 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="service"> 
+					 	service = #service#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="platformId"> 
+					 	platformId = #platformId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="operId"> 
+					 	operId = #operId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="outMchntId"> 
+					 	outMchntId = #outMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="respCode"> 
+					 	respCode = #respCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="errorMsg"> 
+					 	errorMsg = #errorMsg#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="message"> 
+					 	message = #message#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteCreateMerchantLog" parameterClass="cn.seocoo.platform.model.CreateMerchantLog" >
+			DELETE FROM tb_seocoo_createMerchant_log where id=#id#
+		</delete>
+
+		<select id="queryCreateMerchantLogPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.CreateMerchantLog">
+			SELECT * from tb_seocoo_createMerchant_log 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="service"> 
+					 	service = #service#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operId"> 
+					 	operId = #operId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="outMchntId"> 
+					 	outMchntId = #outMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="respCode"> 
+					 	respCode = #respCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="errorMsg"> 
+					 	errorMsg = #errorMsg#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="message"> 
+					 	message = #message#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryCreateMerchantLogPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_createMerchant_log 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="service"> 
+					 	service = #service#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="txnSeq"> 
+					 	txnSeq = #txnSeq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="platformId"> 
+					 	platformId = #platformId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="operId"> 
+					 	operId = #operId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="outMchntId"> 
+					 	outMchntId = #outMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="cmbcMchntId"> 
+					 	cmbcMchntId = #cmbcMchntId#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="respCode"> 
+					 	respCode = #respCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="errorMsg"> 
+					 	errorMsg = #errorMsg#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="message"> 
+					 	message = #message#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

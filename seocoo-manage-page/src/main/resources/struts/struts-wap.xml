@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="wap" extends="default" namespace="/">
+		
+		<action name="wap" method="wap" class="wapAction">
+			<result name="showPushMsgToUser">/pages/wap/showPushMsgToUser.jsp</result>
+			<result name="allLevelRate">/pages/wap/allLevelRate.jsp</result>
+			
+			<result name="upload">/pages/wap/upload.jsp</result>
+			<result name="toMerchantRegister">/pages/wap/toMerchantRegister.jsp</result>
+			<result name="validateName">/pages/wap/validateName.jsp</result>
+			<result name="topay">/pages/wap/topay.jsp</result>
+			<result name="settleAccount">/pages/wap/settleAccount.jsp</result>
+			<result name="queryBill">/pages/wap/queryBill.jsp</result>
+			<result name="spread">/pages/wap/spread.jsp</result>
+			<result name="modifyPassword">/pages/wap/modifyPassword.jsp</result>
+			<result name="qrcodeSpread">/pages/wap/qrcodeSpread.jsp</result>
+			<result name="htmlPage">/pages/wap/htmlPage.jsp</result>
+			<result name="shareLink">/pages/wap/shareLink.jsp</result>
+			<result name="aboutUs">/pages/wap/aboutUs.jsp</result>
+		</action>
+		
+	</package>
+</struts>

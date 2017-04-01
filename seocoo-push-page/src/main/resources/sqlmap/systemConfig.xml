@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="SystemConfig">
+	<typeAlias alias="SystemConfig" type="cn.seocoo.platform.model.SystemConfig" />
+	
+	<resultMap id="SystemConfigMap" class="SystemConfig">
+		<result property="id" column="id" />
+		<result property="propertyKey" column="propertyKey" />
+		<result property="propertyValue" column="propertyValue" />
+		<result property="propertyDesc" column="propertyDesc" />
+		<result property="propertyIndex" column="propertyIndex" />
+		<result property="systemId" column="systemId" />
+	</resultMap>
+	
+	<insert id="save" parameterClass="SystemConfig">
+		INSERT INTO tb_seocoo_systemconfig
+		  (
+		   propertyKey,
+		   propertyValue,
+		   propertyDesc,
+		   propertyIndex,
+		   systemId
+		   )
+		VALUES
+		  (
+		   #propertyKey#,
+		   #propertyValue#,
+		   #propertyDesc#,
+		   #propertyIndex#,
+		   #systemId#
+		   )
+	</insert>
+	
+	<update id="update" parameterClass="SystemConfig">
+		UPDATE tb_seocoo_systemconfig
+		   SET propertyValue = #propertyValue#,
+		       propertyDesc  = #propertyDesc#,
+		       systemId   = #systemId#
+		 WHERE id = #id#
+	</update>
+	
+	<delete id="delete" parameterClass="java.lang.Integer">
+		DELETE FROM tb_seocoo_systemconfig  WHERE id= #id#
+	</delete>
+	
+	<select id="selectById" parameterClass="java.lang.Integer" resultMap="SystemConfigMap">
+		SELECT id,
+		       propertyKey,
+		       propertyValue,
+		       propertyDesc,
+		       propertyIndex,
+		       systemId
+		  FROM tb_seocoo_systemconfig A
+		 WHERE  id= #id#
+	</select>
+	
+	<select id="selectByKey" parameterClass="java.lang.String" resultMap="SystemConfigMap">
+    		SELECT id,
+		       propertyKey,
+		       propertyValue,
+		       propertyDesc,
+		       propertyIndex,
+		       systemId
+			  FROM tb_seocoo_systemconfig A
+			 WHERE propertyKey = #value#
+	</select>
+	
+	<select id="selectByKeyAndIndex" parameterClass="SystemConfig" resultMap="SystemConfigMap">
+   		SELECT id,
+		       propertyKey,
+		       propertyValue,
+		       propertyDesc,
+		       propertyIndex,
+		       systemId
+		  FROM tb_seocoo_systemconfig A
+		 WHERE propertyKey = #propertyKey#
+		   AND propertyIndex = #propertyIndex#
+	</select>
+	
+	<select id="selectAll" resultMap="SystemConfigMap">
+		SELECT id,
+		       propertyKey,
+		       propertyValue,
+		       propertyDesc,
+		       propertyIndex,
+		       systemId
+		  FROM tb_seocoo_systemconfig A
+		  ORDER BY propertyIndex
+	</select>
+	
+	<select id="getSystemConfigByKeys" parameterClass="java.util.Map" resultMap="SystemConfigMap">
+		SELECT id,
+		       propertyKey,
+		       propertyValue,
+		       propertyDesc,
+		       propertyIndex,
+		       systemId
+		  FROM tb_seocoo_systemconfig A
+    	<dynamic prepend="where">
+	    	<isNotEmpty prepend="and" property="keyList"> 
+	    		propertyKey in
+	    		<iterate property="keyList" open="(" close=")" conjunction=",">
+	    			#keyList[]#
+	    		</iterate>
+	    	</isNotEmpty>
+    	</dynamic>
+    	ORDER BY A.PROPERTY_INDEX
+	</select>
+	
+	<select id="searchOfLimit" parameterClass="java.util.Map" resultMap="SystemConfigMap">
+		SELECT  id,
+		       propertyKey,
+		       propertyValue,
+		       propertyDesc,
+		       propertyIndex,
+		       systemId
+               FROM tb_seocoo_systemconfig A 
+			<dynamic prepend="WHERE"> 
+				<isNotEmpty prepend="AND" property="key">
+					propertyKey  like  '%$key$%'
+				</isNotEmpty>
+			</dynamic>
+		   limit #OFFSET# offset  #LIMIT# ;
+	</select>
+	
+	<select id="searchOfTotal" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+   		SELECT COUNT(1) TOTAL FROM tb_seocoo_systemconfig A
+   		<dynamic prepend="WHERE">
+           	<isNotEmpty prepend="AND" property="key">
+           		propertyKey  like  '%$key$%'
+           	</isNotEmpty>
+        </dynamic>
+	</select>
+</sqlMap>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+			default-autowire="byName" default-lazy-init="true">
+			
+		<bean id="demoService" class="cn.seocoo.platform.service.demo.impl.DemoServiceImpl" />
+		<bean id="systemConfigService" class="cn.seocoo.platform.service.systemconfig.impl.SystemConfigServiceImpl" />
+		
+		<bean id="createMerchantLogService" class="cn.seocoo.platform.service.createMerchantLog.impl.CreateMerchantLogServiceImpl"  scope="prototype"/>
+		<bean id="groupService" class="cn.seocoo.platform.service.group.impl.GroupServiceImpl"  scope="prototype"/>
+		<bean id="merchantService" class="cn.seocoo.platform.service.merchant.impl.MerchantServiceImpl"  scope="prototype"/>
+		<bean id="orderService" class="cn.seocoo.platform.service.order.impl.OrderServiceImpl"  scope="prototype"/>
+		<bean id="payChannelService" class="cn.seocoo.platform.service.payChannel.impl.PayChannelServiceImpl"  scope="prototype"/>
+		<bean id="userRelationshipService" class="cn.seocoo.platform.service.userRelationship.impl.UserRelationshipServiceImpl"  scope="prototype"/>
+		<bean id="qqdicService" class="cn.seocoo.platform.service.qqdic.impl.QqdicServiceImpl"  scope="prototype"/>
+		<bean id="wxdicService" class="cn.seocoo.platform.service.wxdic.impl.WxdicServiceImpl"  scope="prototype"/>
+		<bean id="zfbdicService" class="cn.seocoo.platform.service.zfbdic.impl.ZfbdicServiceImpl"  scope="prototype"/>
+		<bean id="areaService" class="cn.seocoo.platform.service.area.impl.AreaServiceImpl"  scope="prototype"/>
+		
+		<bean id="rateDimService" class="cn.seocoo.platform.service.rateDim.impl.RateDimServiceImpl"  scope="prototype"/>
+		<bean id="rateDimAttrService" class="cn.seocoo.platform.service.rateDimAttr.impl.RateDimAttrServiceImpl"  scope="prototype"/>
+		<bean id="rateSkuService" class="cn.seocoo.platform.service.rateSku.impl.RateSkuServiceImpl"  scope="prototype"/>
+		<bean id="dimDicService" class="cn.seocoo.platform.service.dimDic.impl.DimDicServiceImpl"  scope="prototype"/>
+		<bean id="dimDicInfoService" class="cn.seocoo.platform.service.dimDicInfo.impl.DimDicInfoServiceImpl"  scope="prototype"/>
+		
+		<bean id="merchantSnRefService" class="cn.seocoo.platform.service.merchantSnRef.impl.MerchantSnRefServiceImpl"  scope="prototype"/>
+		<bean id="printerService" class="cn.seocoo.platform.service.printer.impl.PrinterServiceImpl"  scope="prototype"/>
+		<bean id="printFalseService" class="cn.seocoo.platform.service.printFalse.impl.PrintFalseServiceImpl"  scope="prototype"/>
+		<bean id="printRecordService" class="cn.seocoo.platform.service.printRecord.impl.PrintRecordServiceImpl"  scope="prototype"/>
+		<bean id="merchantNetSnService" class="cn.seocoo.platform.service.merchantNetSn.impl.MerchantNetSnServiceImpl"  scope="prototype"/>
+		
+		<bean id="userLevelService" class="cn.seocoo.platform.service.userLevel.impl.UserLevelServiceImpl"  scope="prototype"/>
+		<bean id="merchantRateLogService" class="cn.seocoo.platform.service.merchantRateLog.impl.MerchantRateLogServiceImpl"  scope="prototype"/>
+		<bean id="merchantRateService" class="cn.seocoo.platform.service.merchantRate.impl.MerchantRateServiceImpl"  scope="prototype"/>
+		<bean id="paymentProfitService" class="cn.seocoo.platform.service.paymentProfit.impl.PaymentProfitServiceImpl"  scope="prototype"/>
+		<bean id="merchantUserService" class="cn.seocoo.platform.service.merchantUser.impl.MerchantUserServiceImpl"  scope="prototype"/>
+
+		<bean id="adviceImageService" class="cn.seocoo.platform.service.adviceImage.impl.AdviceImageServiceImpl"  scope="prototype"/>
+		<bean id="withdrawCashService" class="cn.seocoo.platform.service.withdrawCash.impl.WithdrawCashServiceImpl"  scope="prototype"/>
+		
+
+		<bean id="userBankService" class="cn.seocoo.platform.service.userBank.impl.UserBankServiceImpl"  scope="prototype"/>
+		<bean id="userImageService" class="cn.seocoo.platform.service.userImage.impl.UserImageServiceImpl"  scope="prototype"/>
+		<bean id="bankInfoService" class="cn.seocoo.platform.service.bankInfo.impl.BankInfoServiceImpl"  scope="prototype"/>
+		<bean id="bankService" class="cn.seocoo.platform.service.bank.impl.BankServiceImpl"  scope="prototype"/>
+		
+		<bean id="merchantInfoService" class="cn.seocoo.platform.service.merchantInfo.impl.MerchantInfoServiceImpl"  scope="prototype"/>
+		<bean id="userIdinfoService" class="cn.seocoo.platform.service.userIdinfo.impl.UserIdinfoServiceImpl"  scope="prototype"/>
+		<bean id="pushMsgService" class="cn.seocoo.platform.service.pushMsg.impl.PushMsgServiceImpl"  scope="prototype"/>
+		<bean id="wapPageService" class="cn.seocoo.platform.service.wapPage.impl.WapPageServiceImpl"  scope="prototype"/>
+
+		
+		<bean id="upgradeService" class="cn.seocoo.platform.service.upgrade.impl.UpgradeServiceImpl"  scope="prototype"/>
+		<bean id="userUpgradeService" class="cn.seocoo.platform.service.userUpgrade.impl.UserUpgradeServiceImpl"  scope="prototype"/>
+		
+		<bean id="validatecodeService" class="cn.seocoo.platform.service.validatecode.impl.ValidatecodeServiceImpl"  scope="prototype"/>
+		<bean id="userUpgradeOrderService" class="cn.seocoo.platform.service.userUpgradeOrder.impl.UserUpgradeOrderServiceImpl"  scope="prototype"/>
+		<bean id="allLevelRateService" class="cn.seocoo.platform.service.allLevelRate.impl.AllLevelRateServiceImpl"  scope="prototype"/>
+		<bean id="merchantProfitLogService" class="cn.seocoo.platform.service.merchantProfitLog.impl.MerchantProfitLogServiceImpl"  scope="prototype"/>
+		<bean id="groupMerchantPayService" class="cn.seocoo.platform.service.groupMerchantPay.impl.GroupMerchantPayServiceImpl"  scope="prototype"/>
+		
+</beans>

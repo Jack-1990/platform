@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="MerchantRate">
+
+	   	<insert id="saveMerchantRate" parameterClass="cn.seocoo.platform.model.MerchantRate">
+        	insert into tb_seocoo_merchantRate(merchantCode,payChannel,intoRate,tradeRate,createTime,updateTime)VALUES(#merchantCode#,#payChannel#,#intoRate#,#tradeRate#,#createTime#,#updateTime#)
+    	</insert>
+
+		<select id="queryMerchantRate" parameterClass="cn.seocoo.platform.model.MerchantRate" resultClass="cn.seocoo.platform.model.MerchantRate">
+			SELECT * from tb_seocoo_merchantRate 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="intoRate"> 
+					 	intoRate = #intoRate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateMerchantRate" parameterClass="cn.seocoo.platform.model.MerchantRate" >
+			update tb_seocoo_merchantRate 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="payChannel"> 
+					 	payChannel = #payChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="intoRate"> 
+					 	intoRate = #intoRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where 	merchantCode = #merchantCode#
+		</update>
+
+		<delete id="deleteMerchantRate" parameterClass="cn.seocoo.platform.model.MerchantRate" >
+			DELETE FROM tb_seocoo_merchantRate where 	merchantCode = #merchantCode#
+				<isNotEmpty prepend="and" property="payChannel"> 
+					 	payChannel = #payChannel#
+				</isNotEmpty> 
+		</delete>
+
+		<select id="queryMerchantRatePage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.MerchantRate">
+			SELECT * from tb_seocoo_merchantRate 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="intoRate"> 
+					 	intoRate = #intoRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryMerchantRatePageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_merchantRate 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="payChannel"> 
+					 	payChannel = #payChannel#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="intoRate"> 
+					 	intoRate = #intoRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="tradeRate"> 
+					 	tradeRate = #tradeRate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+	<insert id="batchInsertMerchantRate" parameterClass="cn.seocoo.platform.model.MerchantRate">
+        	insert into tb_seocoo_merchantRate(merchantCode,payChannel,intoRate,tradeRate,createTime,updateTime)VALUES(#merchantCode#,#payChannel#,#intoRate#,#tradeRate#,#createTime#,#updateTime#)
+    	</insert>
+</sqlMap>

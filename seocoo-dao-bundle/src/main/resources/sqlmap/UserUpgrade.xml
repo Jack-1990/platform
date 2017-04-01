@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserUpgrade">
+
+	<insert id="saveUserUpgrade" parameterClass="cn.seocoo.platform.model.UserUpgrade">
+        	insert into tb_seocoo_user_upgrade(applyCode,fromLevelCode,toLevelCode,attrValue,attrStyle,description,merchantCode,merchantName,applyUser,applyStatus,applyTime,finishTime,orderNumber,duesTime)VALUES(#applyCode#,#fromLevelCode#,#toLevelCode#,#attrValue#,#attrStyle#,#description#,#merchantCode#,#merchantName#,#applyUser#,#applyStatus#,#applyTime#,#finishTime#,#orderNumber#,#duesTime#)
+	</insert>
+
+	<select id="queryUserUpgrade" parameterClass="cn.seocoo.platform.model.UserUpgrade" resultClass="cn.seocoo.platform.model.UserUpgrade">
+			SELECT * from tb_seocoo_user_upgrade 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="applyCode"> 
+					 	applyCode = #applyCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="fromLevelCode"> 
+					 	fromLevelCode = #fromLevelCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="toLevelCode"> 
+					 	toLevelCode = #toLevelCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="attrValue"> 
+					 	attrValue = #attrValue#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="attrStyle"> 
+					 	attrStyle = #attrStyle#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="description"> 
+					 	description = #description#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantName"> 
+					 	merchantName = #merchantName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="applyUser"> 
+					 	applyUser = #applyUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="applyStatus"> 
+					 	applyStatus = #applyStatus#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="applyTime"> 
+					 	applyTime = #applyTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="finishTime"> 
+					 	finishTime = #finishTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+			</isNotEmpty> 
+		</dynamic> 
+		order by  id DESC
+	</select>
+	
+	<select id="queryUserUpgradeInfos" parameterClass="cn.seocoo.platform.model.UserUpgrade" resultClass="cn.seocoo.platform.model.UserUpgrade">
+			SELECT * from tb_seocoo_user_upgrade  where  fromLevelCode = #fromLevelCode# and merchantCode = #merchantCode#  and applyStatus != -1
+	</select>
+
+	<update id="updateUserUpgrade" parameterClass="cn.seocoo.platform.model.UserUpgrade" >
+			update tb_seocoo_user_upgrade 
+		<dynamic prepend="set"> 
+			<isNotEmpty prepend="," property="fromLevelCode"> 
+					 	fromLevelCode = #fromLevelCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="toLevelCode"> 
+					 	toLevelCode = #toLevelCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="attrValue"> 
+					 	attrValue = #attrValue#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="attrStyle"> 
+					 	attrStyle = #attrStyle#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="description"> 
+					 	description = #description#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="merchantName"> 
+					 	merchantName = #merchantName#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="applyUser"> 
+					 	applyUser = #applyUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="applyStatus"> 
+					 	applyStatus = #applyStatus#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="applyTime"> 
+					 	applyTime = #applyTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="finishTime"> 
+					 	finishTime = #finishTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="duesTime"> 
+					 	duesTime = #duesTime#
+			</isNotEmpty> 
+		</dynamic> 
+			where applyCode = #applyCode#
+	</update>
+
+	<delete id="deleteUserUpgrade" parameterClass="cn.seocoo.platform.model.UserUpgrade" >
+			DELETE FROM tb_seocoo_user_upgrade where id=#id#
+	</delete>
+
+	<select id="queryUserUpgradePage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.UserUpgrade">
+			SELECT * from tb_seocoo_user_upgrade 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="applyCode"> 
+					 	applyCode = #applyCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="fromLevelCode"> 
+					 	fromLevelCode = #fromLevelCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="toLevelCode"> 
+					 	toLevelCode = #toLevelCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="attrValue"> 
+					 	attrValue = #attrValue#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="attrStyle"> 
+					 	attrStyle = #attrStyle#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="description"> 
+					 	description = #description#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantName"> 
+					 	merchantName = #merchantName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="applyUser"> 
+					 	applyUser like '%$applyUser$%'
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="applyStatus"> 
+					 	applyStatus in ($applyStatus$)
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="finishTime"> 
+					 	finishTime = #finishTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+			</isNotEmpty>
+			<isNotEmpty prepend=" and " property="startDate"> 
+					 	applyTime >= #startDate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="endDate"> 
+					   #endDate# >= applyTime
+			</isNotEmpty>
+		</dynamic> 
+			ORDER BY applyTime DESC
+			limit #beginRow# , #pageSize#
+	</select>
+
+	<select id="queryUserUpgradePageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_user_upgrade 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="applyCode"> 
+					 	applyCode = #applyCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="fromLevelCode"> 
+					 	fromLevelCode = #fromLevelCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="toLevelCode"> 
+					 	toLevelCode = #toLevelCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="attrValue"> 
+					 	attrValue = #attrValue#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="attrStyle"> 
+					 	attrStyle = #attrStyle#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="description"> 
+					 	description = #description#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantName"> 
+					 	merchantName = #merchantName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="applyUser"> 
+					 	applyUser like '%$applyUser$%'
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="applyStatus"> 
+					 	applyStatus in ($applyStatus$)
+			</isNotEmpty> 
+
+			<isNotEmpty prepend=" and " property="finishTime"> 
+					 	finishTime = #finishTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="startDate"> 
+					 	applyTime >= #startDate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="endDate"> 
+					   #endDate# >= applyTime
+			</isNotEmpty>
+		</dynamic> 
+	</select>
+
+
+	<select id="queryIsnotUpgrade" parameterClass="cn.seocoo.platform.model.UserUpgrade" resultClass="cn.seocoo.platform.model.UserUpgrade">
+			SELECT * from tb_seocoo_user_upgrade 
+			where  fromLevelCode = #fromLevelCode#  and toLevelCode = #toLevelCode#
+			       and  merchantCode = #merchantCode#   and applyStatus != -1
+	</select>
+	
+	<select id="queryListMust" parameterClass="cn.seocoo.platform.model.UserUpgrade" resultClass="cn.seocoo.platform.model.UserUpgrade">
+			SELECT * from tb_seocoo_user_upgrade 
+			where  merchantCode = #merchantCode#  and  applyStatus IN (0,1) 
+	</select>
+
+</sqlMap>

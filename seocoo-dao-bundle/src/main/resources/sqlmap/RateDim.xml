@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="RateDim">
+
+	<insert id="saveRateDim" parameterClass="cn.seocoo.platform.model.RateDim">
+        	insert into tb_seocoo_rateDim(dimCode,dimName,seq,groupCode)VALUES(#dimCode#,#dimName#,#seq#,#groupCode#)
+	</insert>
+
+	<select id="queryRateDim" parameterClass="cn.seocoo.platform.model.RateDim" resultClass="cn.seocoo.platform.model.RateDim">
+			SELECT * from tb_seocoo_rateDim 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="dimCode"> 
+					 	dimCode = #dimCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="dimName"> 
+					 	dimName = #dimName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+			</isNotEmpty> 
+		</dynamic> 
+		order by seq
+	</select>
+
+	<update id="updateRateDim" parameterClass="cn.seocoo.platform.model.RateDim" >
+			update tb_seocoo_rateDim 
+		<dynamic prepend="set"> 
+			<isNotEmpty prepend="," property="dimCode"> 
+					 	dimCode = #dimCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="dimName"> 
+					 	dimName = #dimName#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="seq"> 
+					 	seq = #seq#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="groupCode"> 
+					 	groupCode = #groupCode#
+			</isNotEmpty> 
+		</dynamic> 
+			where id=#id# 
+	</update>
+
+	<delete id="deleteRateDim" parameterClass="cn.seocoo.platform.model.RateDim" >
+			DELETE FROM tb_seocoo_rateDim 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="dimCode"> 
+					 	dimCode = #dimCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="dimName"> 
+					 	dimName = #dimName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+			</isNotEmpty> 
+		</dynamic> 
+	</delete>
+
+	<select id="queryRateDimPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.RateDim">
+			SELECT * from tb_seocoo_rateDim 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="dimCode"> 
+					 	dimCode = #dimCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="dimName"> 
+					 	dimName = #dimName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+			</isNotEmpty> 
+		</dynamic> 
+			limit #pageSize#  offset  #offset#  
+	</select>
+
+	<select id="queryRateDimPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_rateDim 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="dimCode"> 
+					 	dimCode = #dimCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="dimName"> 
+					 	dimName = #dimName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+			</isNotEmpty> 
+		</dynamic> 
+	</select>
+
+	<insert id="batchInsertRateDim" parameterClass="cn.seocoo.platform.model.RateDim">
+        	insert into tb_seocoo_rateDim(dimCode,dimName,seq,groupCode)VALUES(#dimCode#,#dimName#,#seq#,#groupCode#)
+	</insert>
+    	
+</sqlMap>

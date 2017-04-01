@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Upgrade">
+
+	   	<insert id="saveUpgrade" parameterClass="cn.seocoo.platform.model.Upgrade">
+        	insert into tb_seocoo_upgrade(fromLevelCode,toLevelCode,attrValue,attrStyle,description,createTime,updateTime)VALUES(#fromLevelCode#,#toLevelCode#,#attrValue#,#attrStyle#,#description#,#createTime#,#updateTime#)
+    	</insert>
+
+		<select id="queryUpgrade" parameterClass="cn.seocoo.platform.model.Upgrade" resultClass="cn.seocoo.platform.model.Upgrade">
+			SELECT * from tb_seocoo_upgrade 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="fromLevelCode"> 
+					 	fromLevelCode = #fromLevelCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="toLevelCode"> 
+					 	toLevelCode = #toLevelCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="attrValue"> 
+					 	attrValue = #attrValue#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="attrStyle"> 
+					 	attrStyle = #attrStyle#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="description"> 
+					 	description = #description#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					 </isNotEmpty> 
+				</dynamic>
+				order by  seq
+		</select>
+
+		<update id="updateUpgrade" parameterClass="cn.seocoo.platform.model.Upgrade" >
+			update tb_seocoo_upgrade 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="fromLevelCode"> 
+					 	fromLevelCode = #fromLevelCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="toLevelCode"> 
+					 	toLevelCode = #toLevelCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="attrValue"> 
+					 	attrValue = #attrValue#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="attrStyle"> 
+					 	attrStyle = #attrStyle#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="description"> 
+					 	description = #description#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteUpgrade" parameterClass="cn.seocoo.platform.model.Upgrade" >
+			DELETE FROM tb_seocoo_upgrade where id=#id#
+		</delete>
+
+		<select id="queryUpgradePage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Upgrade">
+			SELECT * from tb_seocoo_upgrade 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="fromLevelCode"> 
+					 	fromLevelCode = #fromLevelCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="toLevelCode"> 
+					 	toLevelCode = #toLevelCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="attrValue"> 
+					 	attrValue = #attrValue#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="attrStyle"> 
+					 	attrStyle = #attrStyle#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="description"> 
+					 	description = #description#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryUpgradePageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_upgrade 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="fromLevelCode"> 
+					 	fromLevelCode = #fromLevelCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="toLevelCode"> 
+					 	toLevelCode = #toLevelCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="attrValue"> 
+					 	attrValue = #attrValue#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="attrStyle"> 
+					 	attrStyle = #attrStyle#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="description"> 
+					 	description = #description#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

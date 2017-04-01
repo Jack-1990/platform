@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlrewrite>
+	<rule>
+		<from>^/anon/checkTicket$</from>
+		<to>/anon/checkTicket.do</to>
+	</rule>
+	
+	<rule>
+		<from>^/rest/getPermissionMenusOnceAll$</from>
+		<to>/anon/checkTicket!getPermissionMenusOnceAll.do</to>
+	</rule>
+	
+	<rule>
+		<from>^/anon/getAuthUrl$</from>
+		<to>/anon/checkTicket!getRemotAuthUrl.do</to>
+	</rule>
+	
+	<rule>
+		<from>^/logout$</from>
+		<to>/anon/checkTicket!logout.do</to>
+	</rule>
+	
+	<rule>
+		<from>^/service$</from>
+		<to>/service/home.do</to>
+	</rule>
+	<rule>
+		<from>^/pay$</from>
+		<to>/service/home!sendForword.do</to>
+	</rule>
+</urlrewrite>

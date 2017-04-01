@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Printer">
+
+	   	<insert id="savePrinter" parameterClass="cn.seocoo.platform.model.Printer">
+        	insert into tb_seocoo_printer(groupCode,merchantName,merchantCode,boxMac,printerPortTypeCode,status,printTicketType,printerName,printerIp,snCode,printerPort,printPaperWidth)VALUES(#groupCode#,#merchantName#,#merchantCode#,#boxMac#,#printerPortTypeCode#,#status#,#printTicketType#,#printerName#,#printerIp#,#snCode#,#printerPort#,#printPaperWidth#)
+    	</insert>
+    	
+    	
+    	<insert id="insertPrinter" parameterClass="cn.seocoo.platform.model.Printer">
+        	insert into tb_seocoo_printer(groupCode,merchantName,merchantCode,boxMac,printerPortTypeCode,status,printTicketType,printerName,printerIp,snCode,printerPort,printPaperWidth)VALUES(#groupCode#,#merchantName#,#merchantCode#,#boxMac#,#printerPortTypeCode#,#status#,#printTicketType#,#printerName#,#printerIp#,#snCode#,#printerPort#,#printPaperWidth#)
+    	   <selectKey resultClass="int" keyProperty="id">  
+	            select LAST_INSERT_ID()
+			</selectKey>
+    	</insert>
+
+		<select id="queryPrinter" parameterClass="cn.seocoo.platform.model.Printer" resultClass="cn.seocoo.platform.model.Printer">
+			SELECT * from tb_seocoo_printer 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantName"> 
+					 	merchantName = #merchantName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					  <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="boxMac"> 
+					 	boxMac = #boxMac#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="printerPortTypeCode"> 
+					 	printerPortTypeCode = #printerPortTypeCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="printTicketType"> 
+					 	printTicketType = #printTicketType#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="printerName"> 
+					 	printerName = #printerName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="printerIp"> 
+					 	printerIp = #printerIp#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="printerPort"> 
+					 	printerPort = #printerPort#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="printPaperWidth"> 
+					 	printPaperWidth = #printPaperWidth#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updatePrinter" parameterClass="cn.seocoo.platform.model.Printer" >
+			update tb_seocoo_printer 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="merchantName"> 
+					 	merchantName = #merchantName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="boxMac"> 
+					 	boxMac = #boxMac#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="printerPortTypeCode"> 
+					 	printerPortTypeCode = #printerPortTypeCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="printTicketType"> 
+					 	printTicketType = #printTicketType#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="printerName"> 
+					 	printerName = #printerName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="printerIp"> 
+					 	printerIp = #printerIp#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="printerPort"> 
+					 	printerPort = #printerPort#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="printPaperWidth"> 
+					 	printPaperWidth = #printPaperWidth#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deletePrinter" parameterClass="cn.seocoo.platform.model.Printer" >
+			DELETE FROM tb_seocoo_printer where id=#id#
+		</delete>
+		
+		<delete id="deleteSnCode" parameterClass="cn.seocoo.platform.model.Printer" >
+			DELETE FROM tb_seocoo_printer where snCode = #snCode#
+		</delete>
+
+		<select id="queryPrinterPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Printer">
+			SELECT * from tb_seocoo_printer 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantName"> 
+					 	merchantName = #merchantName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					<isNotEmpty prepend=" and " property="boxMac"> 
+					 	boxMac = #boxMac#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printerPortTypeCode"> 
+					 	printerPortTypeCode = #printerPortTypeCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printTicketType"> 
+					 	printTicketType = #printTicketType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printerName"> 
+					 	printerName = #printerName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printerIp"> 
+					 	printerIp = #printerIp#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printerPort"> 
+					 	printerPort = #printerPort#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printPaperWidth"> 
+					 	printPaperWidth = #printPaperWidth#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryPrinterPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_printer 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantName"> 
+					 	merchantName = #merchantName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					<isNotEmpty prepend=" and " property="boxMac"> 
+					 	boxMac = #boxMac#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printerPortTypeCode"> 
+					 	printerPortTypeCode = #printerPortTypeCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printTicketType"> 
+					 	printTicketType = #printTicketType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printerName"> 
+					 	printerName = #printerName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printerIp"> 
+					 	printerIp = #printerIp#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printerPort"> 
+					 	printerPort = #printerPort#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printPaperWidth"> 
+					 	printPaperWidth = #printPaperWidth#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+
+     <select id="queryAllPrintList" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Printer">
+			SELECT * from tb_seocoo_printer 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					<isNotEmpty prepend=" and " property="snCodes">
+			            snCode in
+		               <iterate property="snCodes" open="(" close=")" conjunction=",">
+							<![CDATA[
+			                    	#snCodes[]#   
+			            		]]>
+						</iterate>
+			        </isNotEmpty>
+			        <isNotEmpty prepend=" and " property="status"> 
+					 	status = #status#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+</sqlMap>

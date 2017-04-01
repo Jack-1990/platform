@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="DimDicInfo">
+
+	   	<insert id="saveDimDicInfo" parameterClass="cn.seocoo.platform.model.DimDicInfo">
+        	insert into tb_seocoo_dimDic_info(code,attrCode,attrName,attrValue,seq)VALUES(#code#,#attrCode#,#attrName#,#attrValue#,#seq#)
+    	</insert>
+
+		<select id="queryDimDicInfo" parameterClass="cn.seocoo.platform.model.DimDicInfo" resultClass="cn.seocoo.platform.model.DimDicInfo">
+			SELECT * from tb_seocoo_dimDic_info 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="attrCode"> 
+					 	attrCode = #attrCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="attrName"> 
+					 	attrName = #attrName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="attrValue"> 
+					 	attrValue = #attrValue#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateDimDicInfo" parameterClass="cn.seocoo.platform.model.DimDicInfo" >
+			update tb_seocoo_dimDic_info 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="code"> 
+					 	code = #code#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="attrCode"> 
+					 	attrCode = #attrCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="attrName"> 
+					 	attrName = #attrName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="attrValue"> 
+					 	attrValue = #attrValue#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteDimDicInfo" parameterClass="cn.seocoo.platform.model.DimDicInfo" >
+			DELETE FROM tb_seocoo_dimDic_info where id=#id#
+		</delete>
+
+		<select id="queryDimDicInfoPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.DimDicInfo">
+			SELECT * from tb_seocoo_dimDic_info 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="attrCode"> 
+					 	attrCode = #attrCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="attrName"> 
+					 	attrName = #attrName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="attrValue"> 
+					 	attrValue = #attrValue#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryDimDicInfoPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_dimDic_info 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="attrCode"> 
+					 	attrCode = #attrCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="attrName"> 
+					 	attrName = #attrName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="attrValue"> 
+					 	attrValue = #attrValue#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		
+		<select id="queryDimDicAttrValue" parameterClass="cn.seocoo.platform.model.DimDicInfo" resultClass="cn.seocoo.platform.model.DimDicInfo">
+			SELECT * from tb_seocoo_dimDic_info 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="attrCode"> 
+					 	attrCode = #attrCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="attrName"> 
+					 	attrName = #attrName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="attrValue"> 
+					 	attrValue = #attrValue#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					 </isNotEmpty> 
+				</dynamic> 
+				ORDER BY   attrValue  DESC
+		</select>
+
+</sqlMap>

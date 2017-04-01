@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="MerchantInfo">
+
+	<insert id="saveMerchantInfo" parameterClass="cn.seocoo.platform.model.MerchantInfo">
+        	insert into tb_seocoo_merchant_info(merchantCode,parentUser,parentMerchantCode,bank,level,currentTotalProfit,totalProfit,certifyStatus,createUser,createTime,updateTime,submitAuditTime,receiptQrCode)
+        	VALUES(#merchantCode#,#parentUser#,#parentMerchantCode#,#bank#,#level#,#currentTotalProfit#,#totalProfit#,#certifyStatus#,#createUser#,#createTime#,#updateTime#,#submitAuditTime#,#receiptQrCode#)
+	</insert>
+
+	<select id="queryMerchantInfo" parameterClass="cn.seocoo.platform.model.MerchantInfo" resultClass="cn.seocoo.platform.model.MerchantInfo">
+			SELECT * from tb_seocoo_merchant_info 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentUser"> 
+					 	parentUser = #parentUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentMerchantCode"> 
+					 	parentMerchantCode = #parentMerchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="bank"> 
+					 	bank = #bank#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="level"> 
+					 	level = #level#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="currentTotalProfit"> 
+					 	currentTotalProfit = #currentTotalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="totalProfit"> 
+					 	totalProfit = #totalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="certifyStatus"> 
+					 	certifyStatus = #certifyStatus#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="submitAuditTime"> 
+					 	submitAuditTime = #submitAuditTime#
+			</isNotEmpty> 
+		</dynamic> 
+	</select>
+	
+	<update id="updateMerchantInfoProfit" parameterClass="cn.seocoo.platform.model.MerchantInfo" >
+			update tb_seocoo_merchant_info set currentTotalProfit =currentTotalProfit + #currentTotalProfit#,totalProfit =totalProfit + #currentTotalProfit#
+			where merchantCode = #merchantCode#
+	</update>
+
+	<update id="updateMerchantInfo" parameterClass="cn.seocoo.platform.model.MerchantInfo" >
+			update tb_seocoo_merchant_info 
+		<dynamic prepend="set"> 
+			<isNotEmpty prepend="," property="parentUser"> 
+					 	parentUser = #parentUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="parentMerchantCode"> 
+					 	parentMerchantCode = #parentMerchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="bank"> 
+					 	bank = #bank#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="level"> 
+					 	level = #level#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="currentTotalProfit"> 
+					 	currentTotalProfit = #currentTotalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="totalProfit"> 
+					 	totalProfit = #totalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="certifyStatus"> 
+					 	certifyStatus = #certifyStatus#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="createUser"> 
+					 	createUser = #createUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="submitAuditTime"> 
+					 	submitAuditTime = #submitAuditTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="receiptQrCode"> 
+					 	receiptQrCode = #receiptQrCode#
+			</isNotEmpty> 
+		</dynamic> 
+			where merchantCode = #merchantCode#
+	</update>
+
+	<delete id="deleteMerchantInfo" parameterClass="cn.seocoo.platform.model.MerchantInfo" >
+			DELETE FROM tb_seocoo_merchant_info where 	merchantCode = #merchantCode#
+	</delete>
+
+	<select id="queryMerchantInfoPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.MerchantInfo">
+			SELECT * from tb_seocoo_merchant_info 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentUser"> 
+					 	parentUser = #parentUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentMerchantCode"> 
+					 	parentMerchantCode = #parentMerchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="bank"> 
+					 	bank = #bank#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="level"> 
+					 	level = #level#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="currentTotalProfit"> 
+					 	currentTotalProfit = #currentTotalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="totalProfit"> 
+					 	totalProfit = #totalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="certifyStatus"> 
+					 	certifyStatus in ($certifyStatus$)
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser like '%$createUser$%'
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="startDate"> 
+					 	submitAuditTime >= #startDate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="endDate"> 
+					   #endDate# >= submitAuditTime
+			</isNotEmpty>
+		</dynamic> 
+			limit #beginRow# , #pageSize#  
+	</select>
+
+	<select id="queryMerchantInfoPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_merchant_info 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentUser"> 
+					 	parentUser = #parentUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentMerchantCode"> 
+					 	parentMerchantCode = #parentMerchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="bank"> 
+					 	bank = #bank#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="level"> 
+					 	level = #level#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="currentTotalProfit"> 
+					 	currentTotalProfit = #currentTotalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="totalProfit"> 
+					 	totalProfit = #totalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="certifyStatus"> 
+					 	certifyStatus in ($certifyStatus$)
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser like '%$createUser$%'
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="startDate"> 
+					 	submitAuditTime >= #startDate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="endDate"> 
+					   #endDate# >= submitAuditTime
+			</isNotEmpty>
+		</dynamic> 
+	</select>
+	<select id="queryMerchantDirectUserAndLevel" parameterClass="cn.seocoo.platform.model.MerchantInfo" resultClass="cn.seocoo.platform.model.MerchantInfo">
+			SELECT
+				COUNT(o.`level`)AS directCount,
+				o.`level`,
+				i.attrName as levelName,
+				o.merchantCode,
+				i.logo
+			FROM
+				tb_seocoo_merchant_info o
+			LEFT JOIN tb_seocoo_dimDic_info i ON o.`level` = i.attrCode
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	o.merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentUser"> 
+					 	o.parentUser = #parentUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentMerchantCode"> 
+					 	o.parentMerchantCode = #parentMerchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="bank"> 
+					 	o.bank = #bank#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="level"> 
+					 	o.level = #level#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="currentTotalProfit"> 
+					 	o.currentTotalProfit = #currentTotalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="totalProfit"> 
+					 	o.totalProfit = #totalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="certifyStatus"> 
+					 	o.certifyStatus = #certifyStatus#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="createUser"> 
+					 	o.createUser = #createUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="createTime"> 
+					 	o.createTime = #createTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="updateTime"> 
+					 	o.updateTime = #updateTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="submitAuditTime"> 
+					 	o.submitAuditTime = #submitAuditTime#
+			</isNotEmpty> 
+		</dynamic> 
+			GROUP BY o.`level`
+	</select>
+	
+	<select id="queryMerchantUserPageWithMerchant" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.MerchantInfo">
+			SELECT a.*,i.realName from  (SELECT u.*,m.flag FROM tb_seocoo_merchant_info u LEFT JOIN tb_seocoo_merchant m ON m.outMchntId = u.merchantCode)a LEFT JOIN tb_seocoo_user_idinfo i ON a.merchantCode = i.merchantCode
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="createUser"> 
+					 	a.createUser like '%$createUser$%'
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="certifyStatus"> 
+					 	a.certifyStatus in ($certifyStatus$)
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="startDate"> 
+					 	a.submitAuditTime >= #startDate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="endDate"> 
+					   #endDate# >= a.submitAuditTime
+			</isNotEmpty>
+			
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	a.merchantCode = #merchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentUser"> 
+					 	a.parentUser = #parentUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentMerchantCode"> 
+					 	a.parentMerchantCode = #parentMerchantCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="bank"> 
+					 	a.bank = #bank#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="level"> 
+					 	a.level = #level#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="currentTotalProfit"> 
+					 	a.currentTotalProfit = #currentTotalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="totalProfit"> 
+					 	a.totalProfit = #totalProfit#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="createTime"> 
+					 	a.createTime = #createTime#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="updateTime"> 
+					 	a.updateTime = #updateTime#
+			</isNotEmpty>  
+		</dynamic> 
+			ORDER BY a.submitAuditTime DESC
+			limit #beginRow# , #pageSize#  
+	</select>
+	
+	
+	<select id="queryMerchantInfoAndBankAndPic"  parameterClass="cn.seocoo.platform.model.MerchantInfo" resultClass="cn.seocoo.platform.model.MerchantInfo">
+			SELECT m.*,fo.address,fo.realName,fo.iDNumber FROM (SELECT b.*,im.bank_after_pic,im.bank_before_pic,im.ID_after_pic,im.ID_before_pic FROM (SELECT a.*,b.cardNumber,b.bankArea,b.bankNumber,b.affiliatedBank,b.bankAreaCode,b.city,b.province from (SELECT
+			u.createUser,u.merchantCode,u.parentMerchantCode,u.submitAuditTime,i.attrName,i.attrCode as `level`
+		FROM
+			tb_seocoo_merchant_info u
+		LEFT JOIN tb_seocoo_dimDic_info i ON u.`level` = i.attrCode) a LEFT JOIN tb_seocoo_user_bank b ON a.merchantCode = b.merchantCode)b LEFT JOIN tb_seocoo_user_image im ON im.merchantCode = b.merchantCode)m
+LEFT JOIN tb_seocoo_user_idinfo  fo ON fo.merchantCode = m.merchantCode
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="loginName"> 
+					 	m.loginName = #loginName#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="parentUser"> 
+					 	m.parentUser = #parentUser#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	m.merchantCode = #merchantCode#
+			</isNotEmpty>
+		</dynamic> 
+	</select>
+	
+	
+	<select id="queryProfitMerchantInfos" parameterClass="cn.seocoo.platform.model.MerchantInfo" resultClass="cn.seocoo.platform.model.MerchantInfo">
+			  SELECT T2.*
+				FROM ( 
+				    SELECT 
+				        @r AS _id, 
+				        (SELECT @r := parentMerchantCode FROM tb_seocoo_merchant_info WHERE merchantCode = _id) AS parent_id, 
+				        @l := @l + 1 AS lvl 
+				    FROM 
+				        (SELECT @r := #merchantCode#, @l := 0) vars, tb_seocoo_merchant_info h 
+				    WHERE @r != 0) T1 
+				JOIN tb_seocoo_merchant_info T2 
+				ON T1._id = T2.merchantCode 
+				ORDER BY T1.lvl asc limit 4
+		</select>
+		
+		
+		
+ <select id="queryParentList" parameterClass="cn.seocoo.platform.model.MerchantInfo" resultClass="cn.seocoo.platform.model.MerchantInfo">
+			SELECT * from tb_seocoo_merchant_info  where FIND_IN_SET(merchantCode, getParentList(#merchantCode#))  ORDER BY createTime DESC LIMIT #countProfitLevel#
+	</select>
+
+</sqlMap>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="GroupMerchantPay">
+
+	   	<insert id="saveGroupMerchantPay" parameterClass="cn.seocoo.platform.model.GroupMerchantPay">
+        	insert into tb_seocoo_group_merchant_pay(groupCode,merchantCode,merchantUser,createUser,createTime)
+        	VALUES(#groupCode#,#merchantCode#,#merchantUser#,#createUser#,#createTime#)
+    	</insert>
+
+		<select id="queryGroupMerchantPay" parameterClass="cn.seocoo.platform.model.GroupMerchantPay" resultClass="cn.seocoo.platform.model.GroupMerchantPay">
+			SELECT * from tb_seocoo_group_merchant_pay 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					  <isNotEmpty prepend=" and " property="merchantUser"> 
+					 	merchantUser = #merchantUser#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateGroupMerchantPay" parameterClass="cn.seocoo.platform.model.GroupMerchantPay" >
+			update tb_seocoo_group_merchant_pay 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="merchantUser"> 
+					 	merchantUser = #merchantUser#
+					 </isNotEmpty> 
+					<isNotEmpty prepend="," property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where groupCode=#groupCode# 
+		</update>
+
+		<delete id="deleteGroupMerchantPay" parameterClass="cn.seocoo.platform.model.GroupMerchantPay" >
+			DELETE FROM tb_seocoo_group_merchant_pay where id=#id#
+		</delete>
+
+		<select id="queryGroupMerchantPayPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.GroupMerchantPay">
+			SELECT * from tb_seocoo_group_merchant_pay 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryGroupMerchantPayPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_group_merchant_pay 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+
+		<update id="updateByMerchantCode" parameterClass="cn.seocoo.platform.model.GroupMerchantPay" >
+			update tb_seocoo_group_merchant_pay 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="merchantUser"> 
+					 	merchantUser = #merchantUser#
+					 </isNotEmpty> 
+					<isNotEmpty prepend="," property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where merchantCode=#merchantCode# 
+		</update>
+</sqlMap>

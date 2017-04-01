@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="DimDic">
+
+	   	<insert id="saveDimDic" parameterClass="cn.seocoo.platform.model.DimDic">
+        	insert into tb_seocoo_dimDic(code,name,seq)VALUES(#code#,#name#,#seq#)
+    	</insert>
+
+		<select id="queryDimDic" parameterClass="cn.seocoo.platform.model.DimDic" resultClass="cn.seocoo.platform.model.DimDic">
+			SELECT * from tb_seocoo_dimDic 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="name"> 
+					 	name = #name#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateDimDic" parameterClass="cn.seocoo.platform.model.DimDic" >
+			update tb_seocoo_dimDic 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="code"> 
+					 	code = #code#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="name"> 
+					 	name = #name#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteDimDic" parameterClass="cn.seocoo.platform.model.DimDic" >
+			DELETE FROM tb_seocoo_dimDic where id=#id#
+		</delete>
+
+		<select id="queryDimDicPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.DimDic">
+			SELECT * from tb_seocoo_dimDic 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="name"> 
+					 	name = #name#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryDimDicPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_dimDic 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="code"> 
+					 	code = #code#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="name"> 
+					 	name = #name#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

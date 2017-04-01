@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="PrintRecord">
+
+	   	<insert id="savePrintRecord" parameterClass="cn.seocoo.platform.model.PrintRecord">
+        	insert into tb_seocoo_print_record(merchantCode,boxMac,orderNumber,recordDate,printIp,snCode)VALUES(#merchantCode#,#boxMac#,#orderNumber#,#recordDate#,#printIp#,#snCode#)
+    	</insert>
+
+		<select id="queryPrintRecord" parameterClass="cn.seocoo.platform.model.PrintRecord" resultClass="cn.seocoo.platform.model.PrintRecord">
+			SELECT * from tb_seocoo_print_record 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="boxMac"> 
+					 	boxMac = #boxMac#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="recordDate"> 
+					 	recordDate = #recordDate#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="printIp"> 
+					 	printIp = #printIp#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updatePrintRecord" parameterClass="cn.seocoo.platform.model.PrintRecord" >
+			update tb_seocoo_print_record 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="boxMac"> 
+					 	boxMac = #boxMac#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="recordDate"> 
+					 	recordDate = #recordDate#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="printIp"> 
+					 	printIp = #printIp#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deletePrintRecord" parameterClass="cn.seocoo.platform.model.PrintRecord" >
+			DELETE FROM tb_seocoo_print_record where id=#id#
+		</delete>
+
+		<select id="queryPrintRecordPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.PrintRecord">
+			SELECT * from tb_seocoo_print_record 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="boxMac"> 
+					 	boxMac = #boxMac#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="recordDate"> 
+					 	recordDate = #recordDate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printIp"> 
+					 	printIp = #printIp#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryPrintRecordPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_print_record 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="boxMac"> 
+					 	boxMac = #boxMac#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="orderNumber"> 
+					 	orderNumber = #orderNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="recordDate"> 
+					 	recordDate = #recordDate#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="printIp"> 
+					 	printIp = #printIp#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="snCode"> 
+					 	snCode = #snCode#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+	   	<select id="queryByPrintIp"  parameterClass="cn.seocoo.platform.model.PrintRecord" resultClass="cn.seocoo.platform.model.PrintRecord">
+			select * from tb_seocoo_print_record where merchantCode=#merchantCode# and printIp=#printIp# and snCode=#snCode# 
+		</select>
+		
+		<select id="queryByMerchant"  parameterClass="cn.seocoo.platform.model.PrintRecord" resultClass="cn.seocoo.platform.model.PrintRecord">
+		     select * from tb_seocoo_print_record where merchantCode=#merchantCode# and orderNumber=#orderNumber#
+	    </select>
+</sqlMap>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserRelationship">
+
+	   	<insert id="saveUserRelationship" parameterClass="cn.seocoo.platform.model.UserRelationship">
+        	insert into tb_seocoo_user_relationship(loginName,merchantCode,groupCode)VALUES(#loginName#,#merchantCode#,#groupCode#)
+    	</insert>
+
+		<select id="queryUserRelationship" parameterClass="cn.seocoo.platform.model.UserRelationship" resultClass="cn.seocoo.platform.model.UserRelationship">
+			SELECT * from tb_seocoo_user_relationship 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateUserRelationship" parameterClass="cn.seocoo.platform.model.UserRelationship" >
+			update tb_seocoo_user_relationship 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="loginName"> 
+					 	loginName = #loginName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+				</dynamic> 
+			where loginName = #loginName# 
+		</update>
+
+		<delete id="deleteUserRelationship" parameterClass="cn.seocoo.platform.model.UserRelationship" >
+			DELETE FROM tb_seocoo_user_relationship where id=#id#
+		</delete>
+
+		<select id="queryUserRelationshipPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.UserRelationship">
+			SELECT * from tb_seocoo_user_relationship 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryUserRelationshipPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_user_relationship 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+		
+	   <select id="queryUser" parameterClass="cn.seocoo.platform.model.UserRelationship" resultClass="cn.seocoo.platform.model.UserRelationship">
+			SELECT * from tb_seocoo_user_relationship 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="loginName"> 
+					 	loginName = #loginName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode in ($groupCode$)
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+		
+	<select id="queryMerCodeEmpty" parameterClass="cn.seocoo.platform.model.UserRelationship" resultClass="cn.seocoo.platform.model.UserRelationship">
+			SELECT * FROM  tb_seocoo_user_relationship  WHERE groupCode =#groupCode#  AND  (merchantCode is NULL  OR merchantCode='')
+    </select>
+
+</sqlMap>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="audit" extends="default" namespace="/">
+		
+		<action name="audit" method="audit" class="auditAction">
+			<result name="audit">/pages/audit/audit.jsp</result>
+			<result name="auditList">/pages/audit/auditList.jsp</result>
+			<result name="auditMsgPage">/pages/audit/auditMsgPage.jsp</result>
+			<result name="auditMsgBindingBlance">/pages/audit/auditMsgBindingBlance.jsp</result>
+			<result name="auditMsgBindingBlance">/pages/audit/auditMsgBindingBlance.jsp</result>
+			<result name="bindingWXMerchatn">/pages/audit/bindingWXMerchatn.jsp</result>
+			<result name="bindingZFBMerchatn">/pages/audit/bindingZFBMerchatn.jsp</result>
+			<result name="showAudit">/pages/audit/showAudit.jsp</result>
+			<result name="withdrawCashPage">/pages/audit/withdrawCashPage.jsp</result>
+			<result name="withdrawCashList">/pages/audit/withdrawCashList.jsp</result>
+		</action>
+		
+	</package>
+</struts>

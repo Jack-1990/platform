@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="groupMer" extends="default" namespace="/">
+		
+		<action name="groupMer" method="show" class="groupMerAction">
+		    <result name="merchant">/pages/groupMer/merchant.jsp</result>
+			<result name="directlyMerchantList">/pages/groupMer/directlyMerchantList.jsp</result>
+			<result name="showAddMerchant">/pages/groupMer/showAddMerchant.jsp</result>
+			<result name="showEditeMerchant">/pages/groupMer/showEditeMerchant.jsp</result>
+			<result name="showBindingBlance">/pages/groupMer/showBindingBlance.jsp</result>
+			<result name="bindingWXMerchatn">/pages/merchant/bindingWXMerchatn.jsp</result>
+			<result name="bindingZFBMerchatn">/pages/merchant/bindingZFBMerchatn.jsp</result>
+			<result name="notDirectlyMerchantList">/pages/merchant/notDirectlyMerchantList.jsp</result>
+			<result name="merUser">/pages/groupMer/merUser.jsp</result>
+		</action>
+		
+	</package>
+</struts>

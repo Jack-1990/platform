@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="merchantRegister" extends="default" namespace="/">
+		
+		<action name="merchantRegister" method="merchantRegister" class="merchantRegisterAction">
+			<result name="merchantRegister">/pages/wap/merchantRegister.jsp</result>
+			<result name="registerSuccess">/pages/wap/registerSuccess.jsp</result>
+			<result name="uploadApp">/pages/wap/uploadApp.jsp</result>
+			<result name="showPushMsgToUser">/pages/wap/showPushMsgToUser.jsp</result>
+		</action>
+		
+	</package>
+</struts>

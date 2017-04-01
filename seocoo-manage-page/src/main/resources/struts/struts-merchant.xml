@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="merchant" extends="default" namespace="/">
+		
+		<action name="merchant" method="show" class="merchantAction">
+			<result name="merchant">/pages/merchant/merchant.jsp</result>
+			<result name="directlyMerchantList">/pages/merchant/directlyMerchantList.jsp</result>
+			<result name="showAddMerchant">/pages/merchant/showAddMerchant.jsp</result>
+			<result name="showEditeMerchant">/pages/merchant/showEditeMerchant.jsp</result>
+			<result name="showBindingBlance">/pages/merchant/showBindingBlance.jsp</result>
+			<result name="bindingWXMerchatn">/pages/merchant/bindingWXMerchatn.jsp</result>
+			<result name="bindingZFBMerchatn">/pages/merchant/bindingZFBMerchatn.jsp</result>
+			<result name="notDirectlyMerchantList">/pages/merchant/notDirectlyMerchantList.jsp</result>
+			<result name="merUser">/pages/merchant/merUser.jsp</result>
+		</action>
+		
+	</package>
+</struts>

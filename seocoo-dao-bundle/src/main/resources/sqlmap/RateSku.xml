@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="RateSku">
+
+	<insert id="saveRateSku" parameterClass="cn.seocoo.platform.model.RateSku">
+        	insert into tb_seocoo_rate_sku(skuCode,setRate,intoRate,seq,groupCode)VALUES(#skuCode#,#setRate#,#intoRate#,#seq#,#groupCode#)
+	</insert>
+
+	<select id="queryRateSku" parameterClass="cn.seocoo.platform.model.RateSku" resultClass="cn.seocoo.platform.model.RateSku">
+			SELECT * from tb_seocoo_rate_sku 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="skuCode"> 
+					 	skuCode = #skuCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="setRate"> 
+					 	setRate = #setRate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="intoRate"> 
+					 	intoRate = #intoRate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+			</isNotEmpty> 
+		</dynamic> 
+		order by seq
+	</select>
+
+	<update id="updateRateSku" parameterClass="cn.seocoo.platform.model.RateSku" >
+			update tb_seocoo_rate_sku 
+		<dynamic prepend="set"> 
+			<isNotEmpty prepend="," property="skuCode"> 
+					 	skuCode = #skuCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="setRate"> 
+					 	setRate = #setRate#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="intoRate"> 
+					 	intoRate = #intoRate#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="seq"> 
+					 	seq = #seq#
+			</isNotEmpty> 
+			<isNotEmpty prepend="," property="groupCode"> 
+					 	groupCode = #groupCode#
+			</isNotEmpty> 
+		</dynamic> 
+			where id=#id# 
+	</update>
+
+	<delete id="deleteRateSku" parameterClass="cn.seocoo.platform.model.RateSku" >
+			DELETE FROM tb_seocoo_rate_sku 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="skuCode"> 
+					 	skuCode = #skuCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="setRate"> 
+					 	setRate = #setRate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="intoRate"> 
+					 	intoRate = #intoRate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+			</isNotEmpty> 
+		</dynamic> 
+	</delete>
+
+	<select id="queryRateSkuPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.RateSku">
+			SELECT * from tb_seocoo_rate_sku 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="skuCode"> 
+					 	skuCode = #skuCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="setRate"> 
+					 	setRate = #setRate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="intoRate"> 
+					 	intoRate = #intoRate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+			</isNotEmpty> 
+		</dynamic> 
+			limit #pageSize#  offset  #offset#  
+	</select>
+
+	<select id="queryRateSkuPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_rate_sku 
+		<dynamic prepend="where"> 
+			<isNotEmpty prepend=" and " property="skuCode"> 
+					 	skuCode = #skuCode#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="setRate"> 
+					 	setRate = #setRate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="intoRate"> 
+					 	intoRate = #intoRate#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+			</isNotEmpty> 
+			<isNotEmpty prepend=" and " property="groupCode"> 
+					 	groupCode = #groupCode#
+			</isNotEmpty> 
+		</dynamic> 
+	</select>
+	<insert id="batchInsertRateSku" parameterClass="cn.seocoo.platform.model.RateSku">
+        	insert into tb_seocoo_rate_sku(skuCode,setRate,intoRate,seq,groupCode)VALUES(#skuCode#,#setRate#,#intoRate#,#seq#,#groupCode#)
+	</insert>
+</sqlMap>

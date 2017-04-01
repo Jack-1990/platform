@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Wxdic">
+
+	   	<insert id="saveWxdic" parameterClass="cn.seocoo.platform.model.Wxdic">
+        	insert into tb_seocoo_wxdic(merchantType,industry,category,categoryID)VALUES(#merchantType#,#industry#,#category#,#categoryID#)
+    	</insert>
+
+		<select id="queryWxdic" parameterClass="cn.seocoo.platform.model.Wxdic" resultClass="cn.seocoo.platform.model.Wxdic">
+			SELECT * from tb_seocoo_wxdic 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantType"> 
+					 	merchantType = #merchantType#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="industry"> 
+					 	industry = #industry#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="category"> 
+					 	category = #category#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="categoryID"> 
+					 	categoryID = #categoryID#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateWxdic" parameterClass="cn.seocoo.platform.model.Wxdic" >
+			update tb_seocoo_wxdic 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="merchantType"> 
+					 	merchantType = #merchantType#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="industry"> 
+					 	industry = #industry#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="category"> 
+					 	category = #category#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="categoryID"> 
+					 	categoryID = #categoryID#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteWxdic" parameterClass="cn.seocoo.platform.model.Wxdic" >
+			DELETE FROM tb_seocoo_wxdic where id=#id#
+		</delete>
+
+		<select id="queryWxdicPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Wxdic">
+			SELECT * from tb_seocoo_wxdic 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantType"> 
+					 	merchantType = #merchantType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="industry"> 
+					 	industry = #industry#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="category"> 
+					 	category = #category#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="categoryID"> 
+					 	categoryID = #categoryID#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryWxdicPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_wxdic 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantType"> 
+					 	merchantType = #merchantType#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="industry"> 
+					 	industry = #industry#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="category"> 
+					 	category = #category#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="categoryID"> 
+					 	categoryID = #categoryID#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

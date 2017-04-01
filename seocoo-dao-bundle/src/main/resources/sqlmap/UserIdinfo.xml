@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserIdinfo">
+
+	   	<insert id="saveUserIdinfo" parameterClass="cn.seocoo.platform.model.UserIdinfo">
+        	insert into tb_seocoo_user_idinfo(merchantCode,realName,iDNumber,address,auditStatus,createUser,createTime,updateTime)VALUES(#merchantCode#,#realName#,#iDNumber#,#address#,#auditStatus#,#createUser#,#createTime#,#updateTime#)
+    	</insert>
+
+		<select id="queryUserIdinfo" parameterClass="cn.seocoo.platform.model.UserIdinfo" resultClass="cn.seocoo.platform.model.UserIdinfo">
+			SELECT * from tb_seocoo_user_idinfo 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="realName"> 
+					 	realName = #realName#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="iDNumber"> 
+					 	iDNumber = #iDNumber#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="address"> 
+					 	address = #address#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateUserIdinfo" parameterClass="cn.seocoo.platform.model.UserIdinfo" >
+			update tb_seocoo_user_idinfo 
+				<dynamic prepend="set">
+					<isNotEmpty prepend="," property="realName"> 
+					 	realName = #realName#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="iDNumber"> 
+					 	iDNumber = #iDNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="address"> 
+					 	address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			where merchantCode = #merchantCode#
+		</update>
+
+		<delete id="deleteUserIdinfo" parameterClass="cn.seocoo.platform.model.UserIdinfo" >
+			DELETE FROM tb_seocoo_user_idinfo where id=#id#
+		</delete>
+
+		<select id="queryUserIdinfoPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.UserIdinfo">
+			SELECT * from tb_seocoo_user_idinfo 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="realName"> 
+					 	realName = #realName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="iDNumber"> 
+					 	iDNumber = #iDNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="address"> 
+					 	address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryUserIdinfoPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_user_idinfo 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="realName"> 
+					 	realName = #realName#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="iDNumber"> 
+					 	iDNumber = #iDNumber#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="address"> 
+					 	address = #address#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="auditStatus"> 
+					 	auditStatus = #auditStatus#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createUser"> 
+					 	createUser = #createUser#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="createTime"> 
+					 	createTime = #createTime#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="updateTime"> 
+					 	updateTime = #updateTime#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

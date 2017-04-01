@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Qqdic">
+
+	   	<insert id="saveQqdic" parameterClass="cn.seocoo.platform.model.Qqdic">
+        	insert into tb_seocoo_qqdic(firstCategory,secondCategory,categoryId)VALUES(#firstCategory#,#secondCategory#,#categoryId#)
+    	</insert>
+
+		<select id="queryQqdic" parameterClass="cn.seocoo.platform.model.Qqdic" resultClass="cn.seocoo.platform.model.Qqdic">
+			SELECT * from tb_seocoo_qqdic 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="firstCategory"> 
+					 	firstCategory = #firstCategory#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="secondCategory"> 
+					 	secondCategory = #secondCategory#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="categoryId"> 
+					 	categoryId = #categoryId#
+					 </isNotEmpty> 
+				</dynamic> 
+		</select>
+
+		<update id="updateQqdic" parameterClass="cn.seocoo.platform.model.Qqdic" >
+			update tb_seocoo_qqdic 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="firstCategory"> 
+					 	firstCategory = #firstCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="secondCategory"> 
+					 	secondCategory = #secondCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="categoryId"> 
+					 	categoryId = #categoryId#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteQqdic" parameterClass="cn.seocoo.platform.model.Qqdic" >
+			DELETE FROM tb_seocoo_qqdic where id=#id#
+		</delete>
+
+		<select id="queryQqdicPage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.Qqdic">
+			SELECT * from tb_seocoo_qqdic 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="firstCategory"> 
+					 	firstCategory = #firstCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="secondCategory"> 
+					 	secondCategory = #secondCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="categoryId"> 
+					 	categoryId = #categoryId#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryQqdicPageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_qqdic 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="firstCategory"> 
+					 	firstCategory = #firstCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="secondCategory"> 
+					 	secondCategory = #secondCategory#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="categoryId"> 
+					 	categoryId = #categoryId#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+
+</sqlMap>

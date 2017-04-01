@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="AdviceImage">
+
+	   	<insert id="saveAdviceImage" parameterClass="cn.seocoo.platform.model.AdviceImage">
+        	insert into tb_seocoo_advice_image(merchantCode,picUrl,seq,jumpUrl)VALUES(#merchantCode#,#picUrl#,#seq#,#jumpUrl#)
+    	</insert>
+
+		<select id="queryAdviceImage" parameterClass="cn.seocoo.platform.model.AdviceImage" resultClass="cn.seocoo.platform.model.AdviceImage">
+			SELECT * from tb_seocoo_advice_image 
+				<dynamic prepend="where"> 
+					 <isNotEmpty prepend=" and " property="id"> 
+					 	id = #id#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="picUrl"> 
+					 	picUrl = #picUrl#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					 </isNotEmpty> 
+					 <isNotEmpty prepend=" and " property="jumpUrl"> 
+					 	jumpUrl = #jumpUrl#
+					 </isNotEmpty> 
+				</dynamic>
+				order by  seq
+		</select>
+
+		<update id="updateAdviceImage" parameterClass="cn.seocoo.platform.model.AdviceImage" >
+			update tb_seocoo_advice_image 
+				<dynamic prepend="set"> 
+					<isNotEmpty prepend="," property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="picUrl"> 
+					 	picUrl = #picUrl#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+					<isNotEmpty prepend="," property="jumpUrl"> 
+					 	jumpUrl = #jumpUrl#
+					</isNotEmpty> 
+				</dynamic> 
+			where id=#id# 
+		</update>
+
+		<delete id="deleteAdviceImage" parameterClass="cn.seocoo.platform.model.AdviceImage" >
+			DELETE FROM tb_seocoo_advice_image
+		</delete>
+
+		<select id="queryAdviceImagePage" parameterClass="java.util.Map" resultClass="cn.seocoo.platform.model.AdviceImage">
+			SELECT * from tb_seocoo_advice_image 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="picUrl"> 
+					 	picUrl = #picUrl#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="jumpUrl"> 
+					 	jumpUrl = #jumpUrl#
+					</isNotEmpty> 
+				</dynamic> 
+			limit #pageSize#  offset  #offset#  
+		</select>
+
+		<select id="queryAdviceImagePageCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+			SELECT count(*) from tb_seocoo_advice_image 
+				<dynamic prepend="where"> 
+					<isNotEmpty prepend=" and " property="merchantCode"> 
+					 	merchantCode = #merchantCode#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="picUrl"> 
+					 	picUrl = #picUrl#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="seq"> 
+					 	seq = #seq#
+					</isNotEmpty> 
+					<isNotEmpty prepend=" and " property="jumpUrl"> 
+					 	jumpUrl = #jumpUrl#
+					</isNotEmpty> 
+				</dynamic> 
+		</select>
+	<insert id="batchInsertAdviceImage" parameterClass="cn.seocoo.platform.model.AdviceImage">
+        	insert into tb_seocoo_advice_image(merchantCode,picUrl,seq,jumpUrl)VALUES(#merchantCode#,#picUrl#,#seq#,#jumpUrl#)
+    	</insert>
+</sqlMap>
